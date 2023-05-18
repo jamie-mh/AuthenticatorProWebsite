@@ -19,7 +19,11 @@ body {
     font-weight: 400;
     font-size: 15px;
     line-height: 15px * $text_line_height_scale;
-    background: $surface;
+    background-color: $surface;
+    background-image: url("/img/background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     color: $text_500;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -38,8 +42,9 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
 
     [class^="icon-"] {
-        color: $tertiary_600;
-        margin-right: 16px;
+        margin-right: 10px;
+        vertical-align: middle;
+        color: $text_500;
     }
 }
 
@@ -58,6 +63,8 @@ h1 {
 h2 {
     font-size: 22px;
     line-height: 22px * $heading_line_height_scale;
+    padding-bottom: 14px;
+    border-bottom: solid 2px darken($surface, 2);
 }
 
 h3 {
