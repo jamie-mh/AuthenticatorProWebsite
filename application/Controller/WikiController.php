@@ -21,7 +21,7 @@ class WikiController extends Controller
     {
         $res = new PageResponse();
         $res->meta->title = "Wiki";
-        $res->meta->description = "test";
+        $res->meta->description = "Welcome to the Authenticator Pro wiki";
         $res->setView("wiki/index.twig");
         return $res;
     }
