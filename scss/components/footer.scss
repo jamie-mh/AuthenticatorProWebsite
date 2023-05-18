@@ -1,0 +1,14 @@
+@import "../values";
+
+#foot {
+    padding: 20px;
+    font-size: 14px;
+    color: $text_100;
+    text-align: center;
+}
+
+@media (min-width: $break_md) {
+    #foot {
+        padding: 20px 60px;
+    }
+}
