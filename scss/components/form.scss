@@ -1,0 +1,81 @@
+@import "../values";
+
+form {
+    @include clearfix;
+    margin: 0;
+}
+
+label, input, select {
+    display: block;
+    width: 100%;
+}
+
+label {
+    margin-bottom: 8px;
+
+    span {
+        color: darken($tertiary_500, 10);
+        margin-right: 10px;
+    }
+
+    small {
+        text-transform: none;
+        font-weight: normal;
+    }
+}
+
+input, select, textarea {
+    font-family: $font_primary;
+    font-size: 14px;
+    height: 50px;
+    padding: 0 16px;
+    border: solid 1px darken($surface, 2);
+    border-radius: 10px;
+    transition: border .2s ease;
+    background: $surface;
+    color: $text_700;
+
+    &:focus, &:active {
+        outline: none;
+        border: solid 1px $tertiary_500;
+    }
+
+    &.icon {
+        font-family: $font_primary, "icomoon";
+    }
+}
+
+textarea {
+    padding: 10px;
+    resize: vertical;
+    width: 100%;
+    min-height: 200px;
+}
+
+input:disabled, select:disabled, textarea:disabled {
+    background: darken($surface, 4);
+}
+
+textarea {
+    font-family: $font_primary;
+    font-size: 14px;
+    line-height: 26px;
+}
+
+input[type="checkbox"] {
+    float: left;
+    width: auto;
+    height: 24px;
+    margin-right: 20px;
+
+    & + label {
+        display: inline;
+    }
+}
+
+input[type="file"] {
+    height: auto;
+    border: none;
+    font-size: 14px;
+    padding: 14px 0;
+}

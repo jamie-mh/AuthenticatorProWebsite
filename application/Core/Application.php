@@ -5,6 +5,7 @@ namespace AuthPro\Core;
 use Exception;
 use FastRoute\Dispatcher;
 use FastRoute\RouteCollector;
+use Respect\Validation\Factory;
 
 use function FastRoute\simpleDispatcher;
 
@@ -24,6 +25,12 @@ readonly class Application
                 });
             }
         });
+
+        Factory::setDefaultInstance(
+            (new Factory())
+                ->withRuleNamespace("AuthPro\\Validation\\Rules")
+                ->withExceptionNamespace("AuthPro\\Validation\\Exceptions")
+        );
     }
 
     public function run(): void

@@ -9,6 +9,7 @@
     4: handler args (optional)
 */
 
+use AuthPro\Controller\FeedbackController;
 use AuthPro\Controller\HomeController;
 use AuthPro\Controller\SitemapController;
 use AuthPro\Controller\WikiController;
@@ -26,6 +27,8 @@ const ROUTES = [
             ["GET", "/wiki/import-from-authy", WikiController::class, "authy"],
             ["GET", "/wiki/import-from-blizzard-authenticator", WikiController::class, "blizzardAuthenticator"],
             ["GET", "/wiki/import-from-steam", WikiController::class, "steam"],
+            ["GET", "/feedback", FeedbackController::class, "index"],
+            ["POST", "/feedback", FeedbackController::class, "submit"],
             ["GET", "/sitemap.xml", SitemapController::class, "index"]
         ]
     ]

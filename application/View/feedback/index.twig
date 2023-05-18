@@ -1,0 +1,59 @@
+<div class="container">
+    <header id="hero">
+        <h1 class="mb">{{ meta.title }}</h1>
+        <p class="mb0">{{ meta.description }}</p>
+    </header>
+
+    <main id="content">
+        <div class="row gaps2">
+            <div class="sm-col12 md-col8">
+                {% if not success is defined %}
+                    <form action="/feedback" method="post">
+                        {% if error is defined %}
+                            <strong class="block mb2">{{ error }}</strong>
+                        {% endif %}
+
+                        <div class="mb2">
+                            <label for="email">Email address<br><small>An email to reply to</small></label>
+                            <input name="email" id="email" value="{{ form.email }}" type="email" maxlength="254" placeholder="example@example.com" required>
+                        </div>
+
+                        <div class="mb2">
+                            <label for="subject">Subject<br><small>A brief description of your message</small></label>
+                            <input name="subject" id="subject" type="text" value="{{ form.subject }}" maxlength="120" placeholder="Hello" required>
+                        </div>
+
+                        <div class="mb2">
+                            <label for="message">Message<br><small>Your message text</small></label>
+                            <textarea name="message" id="message" maxlength="2000" required>{{ form.message }}</textarea>
+                        </div>
+
+                        <div class="row">
+                            <div class="sm-col">
+                                <div class="g-recaptcha" data-sitekey="{{ constant("RECAPTCHA_SITE_KEY") }}" data-theme="light"></div>
+                            </div>
+                            <div class="sm-col">
+                                <button class="button primary right" type="submit"><i class="icon-send"></i>Send</button>
+                            </div>
+                        </div>
+                    </form>
+                {% else %}
+                    <strong class="mb">Thanks for your message!</strong>
+                    <p>We'll get back to you as soon as possible.</p>
+                {% endif %}
+            </div>
+            <div class="sm-col12 md-col4">
+                <h2 class="mb2">Feedback guidelines</h2>
+                <p>This form is for feedback regarding the Authenticator Pro app. Please take note of the following guidelines:</p>
+
+                <ul>
+                    <li><strong>No support</strong>: Support will not be provided from this form. Please check out the <a href="/wiki/faq">FAQ</a> for common answers.</li>
+                    <li><strong>Bugs</strong>: Please create an issue on <a href="https://github.com/jamie-mh/AuthenticatorPro/issues" rel="nofollow">GitHub</a> if possible</li>
+                    <li><strong>Other enquiries</strong>: Please use the form and provide as much detail as deemed necessary</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
