@@ -9,6 +9,7 @@
     4: handler args (optional)
 */
 
+use AuthPro\Controller\DownloadController;
 use AuthPro\Controller\FeedbackController;
 use AuthPro\Controller\HomeController;
 use AuthPro\Controller\SitemapController;
@@ -21,6 +22,7 @@ const ROUTES = [
         "response" => PageResponse::class,
         "routes" => [
             ["GET", "", HomeController::class, "index"],
+            ["GET", "/download", DownloadController::class, "index"],
             ["GET", "/wiki", WikiController::class, "index"],
             ["GET", "/wiki/faq", WikiController::class, "faq"],
             ["GET", "/wiki/import-from-google-authenticator", WikiController::class, "googleAuthenticator"],

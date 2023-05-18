@@ -16,11 +16,16 @@
     flex-wrap: wrap;
 }
 
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
 .row.gaps {
     margin-left: -12px;
     margin-right: -12px;
 
-    & > .sm-none, & > [class^="sm-col"], & > [class^="md-col"] {
+    & > .sm-none, & > [class^="sm-col"], & > [class^="md-col"], & > .column {
         padding-left: 12px;
         padding-right: 12px;
     }
@@ -30,7 +35,7 @@
     margin-left: -24px;
     margin-right: -24px;
 
-    & > .sm-none, & > [class^="sm-col"], & > [class^="md-col"] {
+    & > .sm-none, & > [class^="sm-col"], & > [class^="md-col"], & > .column {
         padding-left: 24px;
         padding-right: 24px;
     }
