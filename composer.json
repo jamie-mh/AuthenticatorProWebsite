@@ -3,6 +3,7 @@
     "require": {
         "ext-curl": "*",
         "ext-json": "*",
+        "ext-redis": "*",
         "league/commonmark": "^2.2",
         "nikic/fast-route": "^1.3",
         "twig/twig": "^3.0",

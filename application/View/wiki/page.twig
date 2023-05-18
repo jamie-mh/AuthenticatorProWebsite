@@ -1,0 +1,35 @@
+<div class="container">
+    <div id="hero">
+        <h1 class="mb">{{ title }}</h1>
+        <p class="mb0">{{ description }}</p>
+    </div>
+
+    <div id="content">
+        <nav class="mb2">
+            <ul class="breadcrumbs">
+                <li>
+                    <a href="/">Authenticator Pro</a>
+                </li>
+                <li>
+                    <a href="/wiki">Wiki</a>
+                </li>
+                <li>
+                    {{ title }}
+                </li>
+            </ul>
+        </nav>
+
+        <div class="row gaps2">
+            <div class="sm-col12 md-col8">
+                <article class="wiki">
+                    {{ content|raw }}
+                </article>
+            </div>
+
+            <div class="sm-col12 md-col4">
+                <h2 class="mb2">Wiki pages</h2>
+                {% include "wiki/toc.twig" %}
+            </div>
+        </div>
+    </div>
+</div>

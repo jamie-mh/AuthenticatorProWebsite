@@ -53,7 +53,7 @@ $surface: #FBFCFF;
 
 // Fonts
 $font_primary: "Rubik", sans-serif;
-$font_secondary: "Rubik", sans-serif;
+$font_mono: "Roboto Mono", sans-serif;
 
 $text_line_height_scale: 1.5;
 $paragraph_line_height_scale: 1.8;
@@ -68,23 +68,32 @@ $container_width: 1040px;
 
 @font-face {
     font-display: swap;
-    font-family: 'Rubik';
+    font-family: "Rubik";
     font-style: normal;
     font-weight: 400;
-    src: url("/fonts/rubik-v26-latin-regular.woff2") format('woff2');
+    src: url("/fonts/rubik-v26-latin-regular.woff2") format("woff2");
 }
 
 @font-face {
     font-display: swap;
-    font-family: 'Rubik';
+    font-family: "Rubik";
     font-style: normal;
     font-weight: 500;
-    src: url("/fonts/rubik-v26-latin-500.woff2") format('woff2');
+    src: url("/fonts/rubik-v26-latin-500.woff2") format("woff2");
 }
 
 @font-face {
-    font-family: 'icomoon';
-    src: url("/fonts/icomoon.woff") format('woff');
+    font-display: swap;
+    font-family: "Roboto Mono";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/fonts/roboto-mono-v22-latin-regular.woff2") format("woff2");
+}
+
+
+@font-face {
+    font-family: "icomoon";
+    src: url("/fonts/icomoon.woff") format("woff");
     font-weight: normal;
     font-style: normal;
     font-display: block;

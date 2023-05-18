@@ -1,0 +1,43 @@
+@import "../values";
+
+.wiki {
+    .table-of-contents {
+        margin-bottom: 30px;
+        font-size: 14px;
+
+        ul, a {
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        li {
+            margin-bottom: 0;
+        }
+    }
+
+    .permalink {
+        margin-left: 12px;
+        display: none;
+    }
+
+    h2, h3, h4, h5, h6 {
+        &:hover .permalink {
+            display: inline;
+        }
+
+        margin: 18px 0;
+    }
+
+    p, code, blockquote, ul, ol {
+        margin-bottom: 12px;
+    }
+
+    hr {
+        margin: 20px 0;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}

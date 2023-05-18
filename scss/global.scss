@@ -131,7 +131,7 @@ hr {
 
 code {
     font-size: 14px;
-    font-family: $font_secondary;
+    font-family: $font_mono;
     padding: 2px 8px;
 }
 
@@ -145,8 +145,8 @@ blockquote {
 }
 
 code, blockquote {
-    background: darken($surface, 4);
-    border-bottom: solid 1px darken($surface, 8);
+    background: darken($surface, 2);
+    border-bottom: solid 1px darken($surface, 4);
     border-radius: 2px;
     overflow-x: auto;
 }

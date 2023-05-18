@@ -1,0 +1,20 @@
+@import "../values";
+
+.breadcrumbs {
+    @include clearfix;
+    list-style: none;
+    padding: 0;
+    font-size: 14px;
+    line-height: 14px * $paragraph_line_height_scale;
+
+    li {
+        float: left;
+    }
+
+    li:not(:last-of-type)::after {
+        display: inline-block;
+        content: '>';
+        color: $text_100;
+        margin: 0 14px;
+    }
+}

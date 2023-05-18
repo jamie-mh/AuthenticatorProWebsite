@@ -11,3 +11,6 @@ if ($_ENV["APP_ENV"] === "dev") {
     define("PROTOCOL", "https");
     define("DOMAIN_NAME", "authenticatorpro.jmh.me");
 }
+
+define("REDIS_HOST", $_ENV["REDIS_HOST"]);
+define("REDIS_PORT", $_ENV["REDIS_PORT"]);
