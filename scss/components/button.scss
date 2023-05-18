@@ -1,0 +1,43 @@
+@import "../values";
+
+.button {
+    display: inline-block;
+    border: 0;
+    border-radius: 20px;
+    font-size: 14px;
+    padding: 12px 30px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all .2s ease;
+    text-align: center;
+    font-family: $font_primary;
+    font-weight: 500;
+
+    &:hover, &:focus {
+        text-decoration: none;
+    }
+
+    [class^="icon-"] {
+        margin-right: 12px;
+        font-size: 16px;
+        vertical-align: middle;
+    }
+
+    &.primary {
+        background: $primary_600;
+        color: $text_inv_500;
+
+        &:hover, &:focus {
+            background: $primary_700;
+        }
+    }
+
+    &.neutral {
+        background: darken($surface, 2);
+        color: $text_500;
+
+        &:hover, &:focus {
+            background: darken($surface, 4);
+        }
+    }
+}

@@ -57,13 +57,10 @@ $font_secondary: "Rubik", sans-serif;
 
 $text_line_height_scale: 1.5;
 $paragraph_line_height_scale: 1.8;
-$heading_line_height_scale: 1.3;
+$heading_line_height_scale: 1.2;
 
 // Sizes
 $container_width: 1080px;
-
-$header_height_sm: 50px;
-$header-height_md: 60px;
 
 // ------------------------------------------------------
 // Font faces
@@ -83,6 +80,14 @@ $header-height_md: 60px;
     font-style: normal;
     font-weight: 500;
     src: url("/fonts/rubik-v26-latin-500.woff2") format('woff2');
+}
+
+@font-face {
+    font-family: 'icomoon';
+    src: url("/fonts/icomoon.woff") format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
 }
 
 // ------------------------------------------------------

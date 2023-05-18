@@ -1,0 +1,15 @@
+@import "../values";
+
+#hero {
+    padding: 20px;
+
+    h1 strong {
+        color: $primary_500;
+    }
+}
+
+@media (min-width: $break_md) {
+    #hero {
+        padding: 40px 30px;
+    }
+}

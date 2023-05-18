@@ -1,0 +1,111 @@
+@import "../values";
+
+#head {
+    background: lighten($surface, 2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    padding-left: 20px;
+}
+
+@media (min-width: $container_width) {
+    #head {
+        box-shadow: rgba(0, 0, 0, .1) 2px 2px 12px;
+        border-radius: 20px;
+        padding: 0 30px;
+    }
+}
+
+#logo img {
+    display: block;
+}
+
+#nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 20%;
+    background: $surface;
+    transform: translateX(100%);
+    transition: all .2s ease;
+    z-index: 100;
+
+    ul {
+        list-style: none;
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+    ul li {
+        margin-bottom: 0;
+    }
+
+    ul li a {
+        display: block;
+        padding: 20px;
+        font-size: 16px;
+        border-bottom: solid 1px darken($surface, 1);
+    }
+}
+
+#nav.open {
+    transform: translateX(0);
+    box-shadow: -10px 0 110px 0 rgba(invert($surface), .2);
+}
+
+@media (min-width: $break_md) {
+    #nav {
+        position: static;
+        background: transparent;
+
+        &, &.open {
+            transform: translateX(0);
+            box-shadow: none;
+            transition: none;
+        }
+
+        ul li {
+            float: left;
+        }
+
+        ul li:not(:last-child) {
+            margin-right: 30px;
+        }
+
+        ul li a {
+            padding: 0;
+            border-bottom: none;
+            font-size: 15px;
+        }
+    }
+}
+
+#open-menu {
+    height: 80px;
+    width: 80px;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: $text_500;
+    font-size: 24px;
+}
+
+@media (min-width: $break_md) {
+    #open-menu, #close-menu {
+        display: none;
+    }
+}
+
+#close-menu {
+    border: 0;
+    outline: 0;
+    background: darken($surface, 4);
+    width: 100%;
+    padding: 20px 0;
+
+    [class^="icon-"] {
+        margin-right: 12px;
+    }
+}

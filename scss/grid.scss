@@ -1,0 +1,421 @@
+@use "sass:math";
+@import "values";
+
+.container {
+    width: 100%;
+    max-width: $container_width;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row {
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.row.gaps {
+    margin-left: -12px;
+    margin-right: -12px;
+
+    & > .sm-none, & > [class^="sm-col"], & > [class^="md-col"] {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
+
+.row.gaps2 {
+    margin-left: -24px;
+    margin-right: -24px;
+
+    & > .sm-none, & > [class^="sm-col"], & > [class^="md-col"] {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
+.row.reverse {
+    flex-direction: row-reverse;
+}
+
+.col.reverse {
+    flex-direction: column-reverse;
+}
+
+.sm-col,
+.sm-col1,
+.sm-col2,
+.sm-col3,
+.sm-col4,
+.sm-col5,
+.sm-col6,
+.sm-col7,
+.sm-col8,
+.sm-col9,
+.sm-col10,
+.sm-col11,
+.sm-col12,
+.sm-col-offset0,
+.sm-col-offset1,
+.sm-col-offset2,
+.sm-col-offset3,
+.sm-col-offset4,
+.sm-col-offset5,
+.sm-col-offset6,
+.sm-col-offset7,
+.sm-col-offset8,
+.sm-col-offset9,
+.sm-col-offset10,
+.sm-col-offset11,
+.sm-col-offset12 {
+    box-sizing: border-box;
+    flex: 0 0 auto;
+}
+
+.sm-col {
+    flex-grow: 1;
+    flex-basis: 0;
+    max-width: 100%;
+}
+
+.sm-col1 {
+    flex-basis: 8.33333333%;
+    max-width: 8.33333333%;
+}
+
+.sm-col2 {
+    flex-basis: 16.66666667%;
+    max-width: 16.66666667%;
+}
+
+.sm-col3 {
+    flex-basis: 25%;
+    max-width: 25%;
+}
+
+.sm-col4 {
+    flex-basis: 33.33333333%;
+    max-width: 33.33333333%;
+}
+
+.sm-col5 {
+    flex-basis: 41.66666667%;
+    max-width: 41.66666667%;
+}
+
+.sm-col6 {
+    flex-basis: 50%;
+    max-width: 50%;
+}
+
+.sm-col7 {
+    flex-basis: 58.33333333%;
+    max-width: 58.33333333%;
+}
+
+.sm-col8 {
+    flex-basis: 66.66666667%;
+    max-width: 66.66666667%;
+}
+
+.sm-col9 {
+    flex-basis: 75%;
+    max-width: 75%;
+}
+
+.sm-col10 {
+    flex-basis: 83.33333333%;
+    max-width: 83.33333333%;
+}
+
+.sm-col11 {
+    flex-basis: 91.66666667%;
+    max-width: 91.66666667%;
+}
+
+.sm-col12 {
+    flex-basis: 100%;
+    max-width: 100%;
+}
+
+.sm-col-offset0 {
+    margin-left: 0;
+}
+
+.sm-col-offset1 {
+    margin-left: 8.33333333%;
+}
+
+.sm-col-offset2 {
+    margin-left: 16.66666667%;
+}
+
+.sm-col-offset3 {
+    margin-left: 25%;
+}
+
+.sm-col-offset4 {
+    margin-left: 33.33333333%;
+}
+
+.sm-col-offset5 {
+    margin-left: 41.66666667%;
+}
+
+.sm-col-offset6 {
+    margin-left: 50%;
+}
+
+.sm-col-offset7 {
+    margin-left: 58.33333333%;
+}
+
+.sm-col-offset8 {
+    margin-left: 66.66666667%;
+}
+
+.sm-col-offset9 {
+    margin-left: 75%;
+}
+
+.sm-col-offset10 {
+    margin-left: 83.33333333%;
+}
+
+.sm-col-offset11 {
+    margin-left: 91.66666667%;
+}
+
+.sm-start {
+    justify-content: flex-start;
+    text-align: start;
+}
+
+.sm-center {
+    justify-content: center;
+    text-align: center;
+}
+
+.sm-end {
+    justify-content: flex-end;
+    text-align: end;
+}
+
+.sm-top {
+    align-items: flex-start;
+}
+
+.sm-middle {
+    align-items: center;
+}
+
+.sm-bottom {
+    align-items: flex-end;
+}
+
+.sm-around {
+    justify-content: space-around;
+}
+
+.sm-between {
+    justify-content: space-between;
+}
+
+.sm-first {
+    order: -1;
+}
+
+.sm-last {
+    order: 1;
+}
+
+@media (min-width: $break_md) {
+    .md-col,
+    .md-col1,
+    .md-col2,
+    .md-col3,
+    .md-col4,
+    .md-col5,
+    .md-col6,
+    .md-col7,
+    .md-col8,
+    .md-col9,
+    .md-col10,
+    .md-col11,
+    .md-col12,
+    .md-col-offset0,
+    .md-col-offset1,
+    .md-col-offset2,
+    .md-col-offset3,
+    .md-col-offset4,
+    .md-col-offset5,
+    .md-col-offset6,
+    .md-col-offset7,
+    .md-col-offset8,
+    .md-col-offset9,
+    .md-col-offset10,
+    .md-col-offset11,
+    .md-col-offset12 {
+        box-sizing: border-box;
+        flex: 0 0 auto;
+    }
+
+    .md-col {
+        flex-grow: 1;
+        flex-basis: 0;
+        max-width: 100%;
+    }
+
+    .md-col1 {
+        flex-basis: 8.33333333%;
+        max-width: 8.33333333%;
+    }
+
+    .md-col2 {
+        flex-basis: 16.66666667%;
+        max-width: 16.66666667%;
+    }
+
+    .md-col3 {
+        flex-basis: 25%;
+        max-width: 25%;
+    }
+
+    .md-col4 {
+        flex-basis: 33.33333333%;
+        max-width: 33.33333333%;
+    }
+
+    .md-col5 {
+        flex-basis: 41.66666667%;
+        max-width: 41.66666667%;
+    }
+
+    .md-col6 {
+        flex-basis: 50%;
+        max-width: 50%;
+    }
+
+    .md-col7 {
+        flex-basis: 58.33333333%;
+        max-width: 58.33333333%;
+    }
+
+    .md-col8 {
+        flex-basis: 66.66666667%;
+        max-width: 66.66666667%;
+    }
+
+    .md-col9 {
+        flex-basis: 75%;
+        max-width: 75%;
+    }
+
+    .md-col10 {
+        flex-basis: 83.33333333%;
+        max-width: 83.33333333%;
+    }
+
+    .md-col11 {
+        flex-basis: 91.66666667%;
+        max-width: 91.66666667%;
+    }
+
+    .md-col12 {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+
+    .md-col-offset0 {
+        margin-left: 0;
+    }
+
+    .md-col-offset1 {
+        margin-left: 8.33333333%;
+    }
+
+    .md-col-offset2 {
+        margin-left: 16.66666667%;
+    }
+
+    .md-col-offset3 {
+        margin-left: 25%;
+    }
+
+    .md-col-offset4 {
+        margin-left: 33.33333333%;
+    }
+
+    .md-col-offset5 {
+        margin-left: 41.66666667%;
+    }
+
+    .md-col-offset6 {
+        margin-left: 50%;
+    }
+
+    .md-col-offset7 {
+        margin-left: 58.33333333%;
+    }
+
+    .md-col-offset8 {
+        margin-left: 66.66666667%;
+    }
+
+    .md-col-offset9 {
+        margin-left: 75%;
+    }
+
+    .md-col-offset10 {
+        margin-left: 83.33333333%;
+    }
+
+    .md-col-offset11 {
+        margin-left: 91.66666667%;
+    }
+
+    .md-start {
+        justify-content: flex-start;
+        text-align: start;
+    }
+
+    .md-center {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .md-end {
+        justify-content: flex-end;
+        text-align: end;
+    }
+
+    .md-top {
+        align-items: flex-start;
+    }
+
+    .md-middle {
+        align-items: center;
+    }
+
+    .md-bottom {
+        align-items: flex-end;
+    }
+
+    .md-around {
+        justify-content: space-around;
+    }
+
+    .md-between {
+        justify-content: space-between;
+    }
+
+    .md-first {
+        order: -1;
+    }
+
+    .md-last {
+        order: 1;
+    }
+}

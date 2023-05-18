@@ -1,0 +1,31 @@
+// https://css-tricks.com/aspect-ratio-boxes/
+// Prevent Content Layout Shift
+
+@import "../values";
+
+.aspect {
+    height: 0;
+    overflow: hidden;
+    position: relative;
+
+    .inner {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media (max-width: $break_md) {
+    .aspect.md {
+        padding-top: 0 !important;
+        height: auto;
+
+        .inner {
+            position: static;
+        }
+    }
+}
