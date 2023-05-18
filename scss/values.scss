@@ -1,0 +1,105 @@
+// ------------------------------------------------------
+// Variables
+// ------------------------------------------------------
+
+// Colours
+$primary_500: #00658B;
+$primary_400: lighten($primary_500, 4);
+$primary_300: lighten($primary_500, 8);
+$primary_200: lighten($primary_500, 16);
+$primary_100: lighten($primary_500, 32);
+$primary_600: darken($primary_500, 2);
+$primary_700: darken($primary_500, 4);
+$primary_800: darken($primary_500, 6);
+$primary_900: darken($primary_500, 8);
+
+$secondary_500: #4E616D;
+$secondary_400: lighten($secondary_500, 2);
+$secondary_300: lighten($secondary_500, 4);
+$secondary_200: lighten($secondary_500, 8);
+$secondary_100: lighten($secondary_500, 16);
+$secondary_600: darken($secondary_500, 2);
+$secondary_700: darken($secondary_500, 4);
+$secondary_800: darken($secondary_500, 8);
+$secondary_900: darken($secondary_500, 16);
+
+$tertiary_500: #615A7C;
+$tertiary_400: lighten($tertiary_500, 2);
+$tertiary_300: lighten($tertiary_500, 4);
+$tertiary_200: lighten($tertiary_500, 8);
+$tertiary_100: lighten($tertiary_500, 16);
+$tertiary_600: darken($tertiary_500, 2);
+$tertiary_700: darken($tertiary_500, 4);
+$tertiary_800: darken($tertiary_500, 8);
+$tertiary_900: darken($tertiary_500, 16);
+
+$text_500: #191C1E;
+$text_100: lighten($text_500, 48);
+$text_200: lighten($text_500, 32);
+$text_300: lighten($text_500, 16);
+$text_400: lighten($text_500, 8);
+$text_600: darken($text_500, 2);
+$text_700: darken($text_500, 4);
+$text_800: darken($text_500, 6);
+$text_900: darken($text_500, 8);
+
+$text_inv_500: #F0F1F3;
+$text_inv_600: darken($text_inv_500, 2);
+$text_inv_700: darken($text_inv_500, 4);
+$text_inv_800: darken($text_inv_500, 6);
+$text_inv_900: darken($text_inv_500, 8);
+
+$surface: #FBFCFF;
+
+// Fonts
+$font_primary: "Rubik", sans-serif;
+$font_secondary: "Rubik", sans-serif;
+
+$text_line_height_scale: 1.5;
+$paragraph_line_height_scale: 1.8;
+$heading_line_height_scale: 1.3;
+
+// Sizes
+$container_width: 1080px;
+
+$header_height_sm: 50px;
+$header-height_md: 60px;
+
+// ------------------------------------------------------
+// Font faces
+// ------------------------------------------------------
+
+@font-face {
+    font-display: swap;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 400;
+    src: url("/fonts/rubik-v26-latin-regular.woff2") format('woff2');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 500;
+    src: url("/fonts/rubik-v26-latin-500.woff2") format('woff2');
+}
+
+// ------------------------------------------------------
+// Mixins
+// ------------------------------------------------------
+
+@mixin clearfix {
+    &::after {
+        content: " ";
+        display: block;
+        height: 0;
+        clear: both;
+    }
+}
+
+// ------------------------------------------------------
+// Breakpoints
+// ------------------------------------------------------
+
+$break_md: 800px;

@@ -1,0 +1,288 @@
+@import "values";
+
+$spacing: 12px;
+
+// Layout
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.clear {
+    @include clearfix;
+}
+
+.valign-middle {
+    vertical-align: middle;
+}
+
+// Display
+.block {
+    display: block;
+}
+
+// Margins
+.mt {
+    margin-top: $spacing;
+}
+
+.mr {
+    margin-right: $spacing;
+}
+
+.mb {
+    margin-bottom: $spacing;
+}
+
+.ml {
+    margin-left: $spacing;
+}
+
+.mt0 {
+    margin-top: 0;
+}
+
+.mr0 {
+    margin-right: 0;
+}
+
+.mb0 {
+    margin-bottom: 0;
+}
+
+.ml0 {
+    margin-left: 0;
+}
+
+@for $i from 2 through 3 {
+    .mt#{$i} {
+        margin-top: $i * $spacing;
+    }
+
+    .mr#{$i} {
+        margin-right: $i * $spacing;
+    }
+
+    .mb#{$i} {
+        margin-bottom: $i * $spacing;
+    }
+
+    .ml#{$i} {
+        margin-left: $i * $spacing;
+    }
+}
+
+@media(max-width: $break_md) {
+    .sm-mt {
+        margin-top: $spacing;
+    }
+
+    .sm-mr {
+        margin-right: $spacing;
+    }
+
+    .sm-mb {
+        margin-bottom: $spacing;
+    }
+
+    .sm-ml {
+        margin-left: $spacing;
+    }
+
+    @for $i from 2 through 3 {
+        .sm-mt#{$i} {
+            margin-top: $i * $spacing;
+        }
+
+        .sm-mr#{$i} {
+            margin-right: $i * $spacing;
+        }
+
+        .sm-mb#{$i} {
+            margin-bottom: $i * $spacing;
+        }
+
+        .sm-ml#{$i} {
+            margin-left: $i * $spacing;
+        }
+    }
+}
+
+@media(min-width: $break_md) {
+    .md-mt {
+        margin-top: $spacing;
+    }
+
+    .md-mr {
+        margin-right: $spacing;
+    }
+
+    .md-mb {
+        margin-bottom: $spacing;
+    }
+
+    .md-ml {
+        margin-left: $spacing;
+    }
+
+    @for $i from 2 through 3 {
+        .md-mt#{$i} {
+            margin-top: $i * $spacing;
+        }
+
+        .md-mr#{$i} {
+            margin-right: $i * $spacing;
+        }
+
+        .md-mb#{$i} {
+            margin-bottom: $i * $spacing;
+        }
+
+        .md-ml#{$i} {
+            margin-left: $i * $spacing;
+        }
+    }
+}
+
+// Padding
+.pt {
+    padding-top: $spacing;
+}
+
+.pr {
+    padding-right: $spacing;
+}
+
+.pb {
+    padding-bottom: $spacing;
+}
+
+.pl {
+    padding-left: $spacing;
+}
+
+@for $i from 2 through 3 {
+    .pt#{$i} {
+        padding-top: $i * $spacing;
+    }
+
+    .pr#{$i} {
+        padding-right: $i * $spacing;
+    }
+
+    .pb#{$i} {
+        padding-bottom: $i * $spacing;
+    }
+
+    .pl#{$i} {
+        padding-left: $i * $spacing;
+    }
+}
+
+@media(max-width: $break_md) {
+    .sm-pt {
+        padding-top: $spacing;
+    }
+
+    .sm-pr {
+        padding-right: $spacing;
+    }
+
+    .sm-pb {
+        padding-bottom: $spacing;
+    }
+
+    .sm-pl {
+        padding-left: $spacing;
+    }
+
+    @for $i from 2 through 3 {
+        .sm-pt#{$i} {
+            padding-top: $i * $spacing;
+        }
+
+        .sm-pr#{$i} {
+            padding-right: $i * $spacing;
+        }
+
+        .sm-pb#{$i} {
+            padding-bottom: $i * $spacing;
+        }
+
+        .sm-pl#{$i} {
+            padding-left: $i * $spacing;
+        }
+    }
+}
+
+@media(min-width: $break_md) {
+    .md-pt {
+        padding-top: $spacing;
+    }
+
+    .md-pr {
+        padding-right: $spacing;
+    }
+
+    .md-pb {
+        padding-bottom: $spacing;
+    }
+
+    .md-pl {
+        padding-left: $spacing;
+    }
+
+    @for $i from 2 through 3 {
+        .md-pt#{$i} {
+            padding-top: $i * $spacing;
+        }
+
+        .md-pr#{$i} {
+            padding-right: $i * $spacing;
+        }
+
+        .md-pb#{$i} {
+            padding-bottom: $i * $spacing;
+        }
+
+        .md-pl#{$i} {
+            padding-left: $i * $spacing;
+        }
+    }
+}
+
+// Width
+@for $i from 1 through 10 {
+    .w#{$i*10} {
+        width: #{$i*10%};
+    }
+}
+
+.mw100 {
+    max-width: 100%;
+    height: auto;
+}
+
+// Font sizes
+.text-small {
+    font-size: 12px;
+    line-height: 12px * $text_line_height_scale;
+}
+
+.text-regular {
+    font-size: 15px;
+    line-height: 15px * $text_line_height_scale;
+}
+
+.text-medium {
+    font-size: 18px;
+    line-height: 18px * $text_line_height_scale;
+}
+
+.text-large {
+    font-size: 26px;
+    line-height: 26px * $text_line_height_scale;
+}
