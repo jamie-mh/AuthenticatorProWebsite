@@ -3,7 +3,6 @@ vendor/
 
 public/dist/
 
-fdroid/metadata/
 fdroid/repo/
 fdroid/srclibs/
 fdroid/tmp/
