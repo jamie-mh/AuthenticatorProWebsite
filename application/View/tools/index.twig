@@ -15,32 +15,32 @@
                         <textarea class="mono mb" name="text" maxlength="1000" placeholder="otpauth://totp/Example:alice@example.com?secret=JBSWY3DPEHPK3PXP&issuer=Example" required></textarea>
                         <button type="submit" class="button primary right">Generate QR code</button>
                     </form>
-
-                    <h3 class="mb">Example URI formats</h3>
-                    <p class="mb">Replace the placeholders in brackets to generate a URI</p>
-
-                    <dl>
-                        <dt>TOTP</dt>
-                        <dd class="mono">otpauth://totp/<strong>[issuer]</strong>:<strong>[username]</strong>?secret=<strong>[secret]</strong>&issuer=<strong>[issuer]</strong></dd>
-
-                        <dt>HOTP</dt>
-                        <dd class="mono">otpauth://hotp/<strong>[issuer]</strong>:<strong>[username]</strong>?secret=<strong>[secret]</strong>&issuer=<strong>[issuer]</strong>&counter=<strong>[counter]</strong></dd>
-
-                        <dt>Steam</dt>
-                        <dd class="mono">otpauth://totp/Steam?secret=<strong>[secret]</strong>&issuer=Steam</dd>
-
-                        <dt>Yandex</dt>
-                        <dd class="mono">otpauth://yaotp/Yandex:<strong>[username]</strong>?secret=<strong>[secret]</strong>&pin_length=<strong>[pin length]</strong></dd>
-
-                        <dt>mOTP (Mobile-Otp)</dt>
-                        <dd class="mono">motp://<strong>[issuer]</strong>:<strong>[username]</strong>?secret=<strong>[secret]</strong></dd>
-                    </dl>
                 </div>
                 <div class="sm-col12 md-col5">
                     <h3 class="mb2">Result</h3>
                     <canvas id="qrcode-canvas"></canvas>
                 </div>
             </div>
+
+            <h3 class="mb">Example URI formats</h3>
+            <p class="mb">Replace the placeholders in brackets to generate a URI</p>
+
+            <dl>
+                <dt>TOTP</dt>
+                <dd class="mono">otpauth://totp/<strong>[issuer]</strong>:<strong>[username]</strong>?secret=<strong>[secret]</strong>&issuer=<strong>[issuer]</strong></dd>
+
+                <dt>HOTP</dt>
+                <dd class="mono">otpauth://hotp/<strong>[issuer]</strong>:<strong>[username]</strong>?secret=<strong>[secret]</strong>&issuer=<strong>[issuer]</strong>&counter=<strong>[counter]</strong></dd>
+
+                <dt>Steam</dt>
+                <dd class="mono">otpauth://totp/Steam?secret=<strong>[secret]</strong>&issuer=Steam</dd>
+
+                <dt>Yandex</dt>
+                <dd class="mono">otpauth://yaotp/Yandex:<strong>[username]</strong>?secret=<strong>[secret]</strong>&pin_length=<strong>[pin length]</strong></dd>
+
+                <dt>mOTP (Mobile-Otp)</dt>
+                <dd class="mono">motp://<strong>[issuer]</strong>:<strong>[username]</strong>?secret=<strong>[secret]</strong></dd>
+            </dl>
         </section>
     </main>
 </div>
