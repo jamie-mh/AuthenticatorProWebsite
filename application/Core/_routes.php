@@ -12,6 +12,7 @@
 use AuthPro\Controller\DownloadController;
 use AuthPro\Controller\FeedbackController;
 use AuthPro\Controller\HomeController;
+use AuthPro\Controller\PrivacyController;
 use AuthPro\Controller\SitemapController;
 use AuthPro\Controller\ToolsController;
 use AuthPro\Controller\WikiController;
@@ -33,6 +34,7 @@ const ROUTES = [
             ["GET", "/tools", ToolsController::class, "index"],
             ["GET", "/feedback", FeedbackController::class, "index"],
             ["POST", "/feedback", FeedbackController::class, "submit"],
+            ["GET", "/privacy", PrivacyController::class, "index"],
             ["GET", "/sitemap.xml", SitemapController::class, "index"]
         ]
     ]
