@@ -1,6 +1,5 @@
 "use strict";
 
-// Mobile menu
 const $nav = document.getElementById("nav");
 
 function toggleNav() {

@@ -13,13 +13,16 @@
         "@babel/core": "^7.21.8",
         "@babel/preset-env": "^7.21.5",
         "browser-sync": "^2.29.2",
+        "esbuild": "^0.17.19",
         "gulp": "^4.0.2",
         "gulp-autoprefixer": "^8.0.0",
         "gulp-babel": "^8.0.0",
         "gulp-clean-css": "^4.3.0",
         "gulp-environments": "^1.0.1",
+        "gulp-esbuild": "^0.11.1",
         "gulp-sass": "^5.1.0",
         "gulp-terser": "^2.1.0",
+        "qrcode": "^1.5.3",
         "sass": "^1.62.1"
     }
 }

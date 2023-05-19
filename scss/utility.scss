@@ -267,6 +267,10 @@ $spacing: 12px;
 }
 
 // Font sizes
+.mono {
+    font-family: $font_mono;
+}
+
 .text-small {
     font-size: 12px;
     line-height: 12px * $text_line_height_scale;

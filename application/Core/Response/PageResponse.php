@@ -15,7 +15,9 @@ class PageResponse implements Response
     private readonly Environment $_twig;
 
     public DocumentMeta $meta;
+
     public array $viewData;
+    public array $scripts;
 
     private string $_viewPath;
     private int $_statusCode;
@@ -24,7 +26,9 @@ class PageResponse implements Response
     {
         $this->_statusCode = Response::STATUS_OK;
         $this->meta = new DocumentMeta();
+
         $this->viewData = [];
+        $this->scripts = [];
 
         $loader = new FilesystemLoader(APP . "View");
         $this->_twig = new Environment(
@@ -54,7 +58,7 @@ class PageResponse implements Response
         try {
             echo $this->_twig->render("_shared/header.twig");
             echo $this->_twig->render($this->_viewPath, $this->viewData);
-            echo $this->_twig->render("_shared/footer.twig");
+            echo $this->_twig->render("_shared/footer.twig", ["scripts" => $this->scripts]);
         } catch (Error $e) {
             self::serverError($e)->render();
         }

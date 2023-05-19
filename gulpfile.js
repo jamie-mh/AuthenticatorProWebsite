@@ -10,9 +10,15 @@ const cleanCSS = require("gulp-clean-css");
 
 const babel = require("gulp-babel");
 const terser = require("gulp-terser");
+const {createGulpEsbuild} = require("gulp-esbuild")
 
-let development = environments.development;
-let production = environments.production;
+const esbuild = createGulpEsbuild({
+    incremental: false,
+    piping: true
+});
+
+const development = environments.development;
+const production = environments.production;
 
 const paths = {
     php: {
@@ -23,10 +29,8 @@ const paths = {
         ],
     },
     js: {
-        src: [
-            "./js/**/*.js",
-            "./js/*.js"
-        ],
+        src: "./js/**/*.js",
+        watch: "./js/**/*.js",
         dest: "./public/dist/"
     },
     scss: {
@@ -67,6 +71,12 @@ function js() {
         .pipe(babel({
             presets: ["@babel/env"]
         }))
+        .pipe(esbuild({
+            entryNames: "[dir]",
+            bundle: true,
+            treeShaking: production(),
+            legalComments: "none"
+        }))
         .pipe(terser({
             mangle: {
                 toplevel: true
@@ -87,7 +97,7 @@ function watch() {
     });
 
     gulp.watch(paths.scss.watch, scss);
-    gulp.watch(paths.js.src, js);
+    gulp.watch(paths.js.watch, js);
     gulp.watch(paths.php.watch, reload);
 }
 

@@ -13,6 +13,7 @@ use AuthPro\Controller\DownloadController;
 use AuthPro\Controller\FeedbackController;
 use AuthPro\Controller\HomeController;
 use AuthPro\Controller\SitemapController;
+use AuthPro\Controller\ToolsController;
 use AuthPro\Controller\WikiController;
 use AuthPro\Core\Response\PageResponse;
 
@@ -29,6 +30,7 @@ const ROUTES = [
             ["GET", "/wiki/import-from-authy", WikiController::class, "authy"],
             ["GET", "/wiki/import-from-blizzard-authenticator", WikiController::class, "blizzardAuthenticator"],
             ["GET", "/wiki/import-from-steam", WikiController::class, "steam"],
+            ["GET", "/tools", ToolsController::class, "index"],
             ["GET", "/feedback", FeedbackController::class, "index"],
             ["POST", "/feedback", FeedbackController::class, "submit"],
             ["GET", "/sitemap.xml", SitemapController::class, "index"]

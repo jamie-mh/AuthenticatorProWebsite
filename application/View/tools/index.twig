@@ -1,0 +1,34 @@
+<div class="container">
+    <header id="hero">
+        <h1 class="mb">{{ meta.title }}</h1>
+        <p class="mb0">{{ meta.description }}</p>
+    </header>
+
+    <main id="content">
+        <section>
+            <h2 class="mb">QR code generator</h2>
+            <p class="mb2">Generate a text based QR code directly in your browser. No information is transmitted to a remote server.</p>
+
+            <div class="row gaps2">
+                <div class="sm-col12 md-col7">
+                    <form class="mb2" id="qrcode-form">
+                        <textarea class="mono mb" name="text" maxlength="1000" placeholder="otpauth://totp/Example:alice@example.com?secret=JBSWY3DPEHPK3PXP&issuer=Example" required></textarea>
+                        <button type="submit" class="button primary right">Generate QR code</button>
+                    </form>
+
+                    <h3 class="mb">Example URI formats</h3>
+                    <ul>
+                        <li>otpauth://totp/<strong>[issuer]</strong>:<strong>[username]</strong>?secret=<strong>[secret]</strong>&issuer=<strong>[issuer]</strong></li>
+                        <li>otpauth://hotp/<strong>[issuer]</strong>:<strong>[username]</strong>?secret=<strong>[secret]</strong>&issuer=<strong>[issuer]</strong>&counter=<strong>[counter]</strong></li>
+                        <li>otpauth://totp/Steam?secret=<strong>[secret]</strong>&issuer=Steam</li>
+                        <li>otpauth://yaotp/Yandex:<strong>[username]</strong>?secret=<strong>[secret]</strong>&pin_length=<strong>[pin length]</strong></li>
+                        <li>motp://<strong>[issuer]</strong>:<strong>[username]</strong>?secret=<strong>[secret]</strong></li>
+                    </ul>
+                </div>
+                <div class="sm-col12 md-col5">
+                    <canvas id="qrcode-canvas"></canvas>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>

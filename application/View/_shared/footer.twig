@@ -4,6 +4,10 @@
     </div>
 </footer>
 
+{% for script in scripts %}
+    <script defer src="/dist/{{ script }}"></script>
+{% endfor %}
+
 <script defer src="/dist/main.js"></script>
 
 </body>
