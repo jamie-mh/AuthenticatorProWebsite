@@ -13,7 +13,6 @@ class ToolsController extends Controller
         $res = new PageResponse();
         $res->meta->title = "Tools";
         $res->meta->description = "Useful tools for Authenticator Pro";
-        $res->scripts = ["tools.js"];
         $res->setView("tools/index.twig");
         return $res;
     }

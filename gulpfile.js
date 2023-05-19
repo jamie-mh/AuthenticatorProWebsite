@@ -3,6 +3,7 @@
 const gulp = require("gulp");
 const browserSync = require("browser-sync").create();
 const environments = require("gulp-environments");
+const hash = require("gulp-hash");
 
 const sass = require("gulp-sass")(require("sass"));
 const autoprefixer = require("gulp-autoprefixer");
@@ -62,7 +63,10 @@ function scss() {
                 }
             }
         }))
+        .pipe(production(hash()))
         .pipe(gulp.dest(paths.scss.dest))
+        .pipe(production(hash.manifest("application/assets.json")))
+        .pipe(production(gulp.dest(".")))
         .pipe(development(browserSync.stream()));
 }
 
@@ -82,7 +86,10 @@ function js() {
                 toplevel: true
             }
         }))
+        .pipe(production(hash()))
         .pipe(gulp.dest(paths.js.dest))
+        .pipe(production(hash.manifest("application/assets.json")))
+        .pipe(production(gulp.dest(".")))
 }
 
 function reload(cb) {

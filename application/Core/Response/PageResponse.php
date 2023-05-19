@@ -9,15 +9,15 @@ use Twig\Environment;
 use Twig\Error\Error;
 use Twig\Extension\DebugExtension;
 use Twig\Loader\FilesystemLoader;
+use Twig\TwigFunction;
 
 class PageResponse implements Response
 {
     private readonly Environment $_twig;
+    private readonly array $_assetMap;
 
     public DocumentMeta $meta;
-
     public array $viewData;
-    public array $scripts;
 
     private string $_viewPath;
     private int $_statusCode;
@@ -26,9 +26,7 @@ class PageResponse implements Response
     {
         $this->_statusCode = Response::STATUS_OK;
         $this->meta = new DocumentMeta();
-
         $this->viewData = [];
-        $this->scripts = [];
 
         $loader = new FilesystemLoader(APP . "View");
         $this->_twig = new Environment(
@@ -43,10 +41,22 @@ class PageResponse implements Response
 
         $this->_twig->addGlobal("meta", $this->meta);
         $this->_twig->addGlobal("session", $_SESSION);
+        $this->addAssetHashFunction();
 
         if (IS_DEV) {
             $this->_twig->addExtension(new DebugExtension());
+        } else {
+            $assetMapContents = file_get_contents(APP . "assets.json");
+            $this->_assetMap = json_decode($assetMapContents, true, 2, JSON_THROW_ON_ERROR);
         }
+    }
+
+    private function addAssetHashFunction(): void {
+        $this->_twig->addFunction(
+            new TwigFunction("asset_hash", function (string $name) {
+                return IS_DEV ? $name : $this->_assetMap[$name];
+            })
+        );
     }
 
     public function render(): void
@@ -58,7 +68,7 @@ class PageResponse implements Response
         try {
             echo $this->_twig->render("_shared/header.twig");
             echo $this->_twig->render($this->_viewPath, $this->viewData);
-            echo $this->_twig->render("_shared/footer.twig", ["scripts" => $this->scripts]);
+            echo $this->_twig->render("_shared/footer.twig");
         } catch (Error $e) {
             self::serverError($e)->render();
         }

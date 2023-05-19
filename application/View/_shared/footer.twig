@@ -4,11 +4,7 @@
     </div>
 </footer>
 
-{% for script in scripts %}
-    <script defer src="/dist/{{ script }}"></script>
-{% endfor %}
-
-<script defer src="/dist/main.js"></script>
+<script defer src="/dist/{{ asset_hash("main.js") }}"></script>
 
 </body>
 </html>
