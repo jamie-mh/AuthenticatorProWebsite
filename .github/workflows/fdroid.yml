@@ -1,6 +1,8 @@
 name: Update F-Droid repo
 
 on:
+  schedule:
+    - cron: "0 0 * * *"
   workflow_dispatch:
 
 jobs:
@@ -8,8 +10,49 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: robinraju/release-downloader@v1.8
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install F-Droid server
+        run: |
+          sudo add-apt-repository -y ppa:fdroid/fdroidserver
+          sudo apt-get -qq update
+          sudo apt-get -yqq install fdroidserver
+
+      - name: Prepare config
+        env:
+          KEYSTORE_PASS: ${{ secrets.KEYSTORE_PASS }}
+          KEY_PASS: ${{ secrets.KEY_PASS }}
+          KEYSTORE: ${{ secrets.KEYSTORE }}
+        run: |
+          echo "keystorepass: '$KEYSTORE_PASS'" >> "$GITHUB_WORKSPACE/fdroid/config.yml"
+          echo "keypass: '$KEY_PASS'" >> "$GITHUB_WORKSPACE/fdroid/config.yml"
+          echo "$KEYSTORE" | base64 -d > "$GITHUB_WORKSPACE/fdroid/keystore.p12"
+          chmod 600 "$GITHUB_WORKSPACE/fdroid/config.yml"
+
+      - name: Download latest release
+        uses: robinraju/release-downloader@v1.8
         with:
           repository: "jamie-mh/AuthenticatorPro"
           latest: true
+          fileName: "me.jmh.authenticatorpro-arm64-v8a.fdroid.apk"
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update repo
+        run: |
+          mkdir "$GITHUB_WORKSPACE/fdroid/repo"
+          mv me.jmh.authenticatorpro-arm64-v8a.fdroid.apk "$GITHUB_WORKSPACE/fdroid/repo"
+          
+          cd "$GITHUB_WORKSPACE/fdroid"
+          fdroid update 
+          cd $GITHUB_WORKSPACE
+
+      - name: Deploy with rsync
+        uses: burnett01/rsync-deployments@5.2
+        with:
+          switches: -avzr --delete
+          path: "fdroid/repo"
+          remote_path: /var/www/fdroid
+          remote_host: ${{ secrets.DEPLOY_HOST }}
+          remote_user: ${{ secrets.DEPLOY_USER }}
+          remote_key: ${{ secrets.DEPLOY_KEY }}

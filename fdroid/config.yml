@@ -52,7 +52,7 @@ sdk_path: $ANDROID_HOME
 
 # Canonical URL of the repositoy, needs to end in /repo. Is is used to identity
 # the repo in the client, as well.
-repo_url: https://authenticatorpro.jmh.me/repo
+repo_url: https://authenticatorpro.jmh.me/fdroid/repo
 repo_name: Authenticator Pro F-Droid Repo
 repo_description: This is a repository with Free distributions of Authenticator Pro
 
