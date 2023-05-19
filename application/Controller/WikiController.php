@@ -28,33 +28,44 @@ class WikiController extends Controller
 
     public function faq(): Response
     {
-        return $this->page("Frequently-Asked-Questions", "F.A.Q.", "Questions and answers for frequently asked questions");
+        $content = $this->getWikiPage("Frequently-Asked-Questions.md");
+        return $this->page("F.A.Q.", "Questions and answers for frequently asked questions", $content);
+    }
+
+    public function backupFormat(): Response
+    {
+        $content = $this->getMarkdownPage("doc/BACKUP_FORMAT.md");
+        return $this->page("Backup Format", "File format and encryption for Authenticator Pro backup files", $content);
     }
 
     public function googleAuthenticator(): Response
     {
-        return $this->page("Importing-from-Google-Authenticator", "Import from Google Authenticator", "Here's how to transfer your accounts from Google Authenticator to Authenticator Pro");
+        $content = $this->getWikiPage("Importing-from-Google-Authenticator.md");
+        return $this->page("Import from Google Authenticator", "Here's how to transfer your accounts from Google Authenticator to Authenticator Pro", $content);
     }
 
     public function authy(): Response
     {
-        return $this->page("Importing-from-Authy", "Import from Authy", "Here's how to transfer your accounts from Authy to Authenticator Pro");
+        $content = $this->getWikiPage("Importing-from-Authy.md");
+        return $this->page("Import from Authy", "Here's how to transfer your accounts from Authy to Authenticator Pro", $content);
     }
 
     public function blizzardAuthenticator(): Response
     {
-        return $this->page("Importing-from-Blizzard-Authenticator", "Import from Blizzard Authenticator", "Here's how to transfer your accounts from Blizzard Authenticator to Authenticator Pro");
+        $content = $this->getWikiPage("Importing-from-Blizzard-Authenticator.md");
+        return $this->page("Import from Blizzard Authenticator", "Here's how to transfer your accounts from Blizzard Authenticator to Authenticator Pro", $content);
     }
 
     public function steam(): Response
     {
-        return $this->page("Importing-from-Steam", "Import from Steam", "Here's how to transfer your accounts from Steam mobile app to Authenticator Pro");
+        $content = $this->getWikiPage("Importing-from-Steam.md");
+        return $this->page("Import from Steam", "Here's how to transfer your accounts from Steam mobile app to Authenticator Pro", $content);
     }
 
-    private function page(string $fileName, string $title, string $description): Response {
+    private function page(string $title, string $description, string $content): Response {
         $viewData["title"] = $title;
         $viewData["description"] = $description;
-        $viewData["content"] = $this->getWikiPage($fileName);
+        $viewData["content"] = $content;
 
         $res = new PageResponse();
         $res->meta->title = $title;
@@ -65,14 +76,24 @@ class WikiController extends Controller
     }
 
     private function getWikiPage(string $fileName): string {
+        $url = "https://raw.githubusercontent.com/wiki/jamie-mh/AuthenticatorPro/$fileName";
+        return $this->getMarkdownFile($url);
+    }
+
+    private function getMarkdownPage(string $filePath): string {
+        $url = "https://raw.githubusercontent.com/jamie-mh/AuthenticatorPro/master/$filePath";
+        $content = $this->getMarkdownFile($url);
+        return preg_replace("#<h1>(.*?)</h1>#", "", $content);
+    }
+
+    private function getMarkdownFile(string $url) {
         $redis = new Redis();
         $redis->connect(REDIS_HOST, REDIS_PORT);
 
-        $key = "wiki:$fileName";
+        $key = "wiki:$url";
         $value = $redis->get($key);
 
         if ($value === false) {
-            $url = "https://raw.githubusercontent.com/wiki/jamie-mh/AuthenticatorPro/$fileName.md";
             $markdown = file_get_contents($url);
             $value = $this->_markdownRenderer->render($markdown);
 

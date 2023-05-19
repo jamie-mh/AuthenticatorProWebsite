@@ -1,0 +1,48 @@
+@import "../values";
+
+table {
+    width: 100%;
+    border-spacing: 0;
+
+    &.fixed {
+        table-layout: fixed;
+    }
+
+    th {
+        text-align: left;
+        font-weight: 400;
+        color: $text_200;
+        font-size: 14px;
+        padding: 8px 4px;
+    }
+
+    th, td {
+        border-bottom: solid 2px darken($surface, 1);
+    }
+
+    tr {
+        & > th:first-of-type, & > td:first-of-type {
+            padding-left: 0;
+        }
+
+        & > th:last-of-type, & > td:last-of-type {
+            padding-right: 0;
+        }
+    }
+
+    td {
+        padding: 12px 4px;
+    }
+
+    &.compact td, &.compact th {
+        padding: 6px 4px;
+    }
+
+    tr > th:not(:last-of-type), tr > td:not(:last-of-type) {
+        padding-right: 8px;
+    }
+
+    tr > th:only-of-type {
+        padding-right: 20px;
+    }
+}

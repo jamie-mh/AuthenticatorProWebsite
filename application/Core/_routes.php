@@ -27,6 +27,7 @@ const ROUTES = [
             ["GET", "/download", DownloadController::class, "index"],
             ["GET", "/wiki", WikiController::class, "index"],
             ["GET", "/wiki/faq", WikiController::class, "faq"],
+            ["GET", "/wiki/backup-format", WikiController::class, "backupFormat"],
             ["GET", "/wiki/import-from-google-authenticator", WikiController::class, "googleAuthenticator"],
             ["GET", "/wiki/import-from-authy", WikiController::class, "authy"],
             ["GET", "/wiki/import-from-blizzard-authenticator", WikiController::class, "blizzardAuthenticator"],
