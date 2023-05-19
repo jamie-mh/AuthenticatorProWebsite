@@ -1,0 +1,81 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      NODE_ENV: production
+      COMPOSER_NO_DEV: 1
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: 'npm'
+
+      - name: Install Node packages
+        run: npm install
+
+      - name: Build assets
+        run: npm run build
+
+      - name: Setup PHP
+        uses: "shivammathur/setup-php@v2"
+        with:
+          php-version: 8.2
+
+      - name: Install Composer packages
+        uses: "ramsey/composer-install@v2"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: AuthenticatorProWebsite
+          path: |
+            application
+            vendor
+            public
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: AuthenticatorProWebsite
+
+      - name: Prepare environment file
+        run: |
+          printf %s "${{ secrets.ENV_FILE }}" > .env
+
+      - name: Deploy with rsync
+        uses: burnett01/rsync-deployments@5.2
+        with:
+          switches: -avzr --delete
+          path: .
+          remote_path: /var/www/authenticatorpro/
+          remote_host: ${{ secrets.DEPLOY_HOST }}
+          remote_user: ${{ secrets.DEPLOY_USER }}
+          remote_key: ${{ secrets.DEPLOY_KEY }}
