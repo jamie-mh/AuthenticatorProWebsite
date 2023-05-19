@@ -1,0 +1,15 @@
+name: Update F-Droid repo
+
+on:
+  workflow_dispatch:
+
+jobs:
+  f-droid:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: robinraju/release-downloader@v1.8
+        with:
+          repository: "jamie-mh/AuthenticatorPro"
+          latest: true
+          token: ${{ secrets.GITHUB_TOKEN }}

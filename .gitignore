@@ -3,6 +3,12 @@ vendor/
 
 public/dist/
 
+fdroid/metadata/
+fdroid/repo/
+fdroid/srclibs/
+fdroid/tmp/
+fdroid/keystore.p12
+
 node_modules/
 
 .env
