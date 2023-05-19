@@ -11,12 +11,19 @@ class SitemapController extends Controller
 {
     public function index(): Response
     {
-        $res = new SitemapResponse();
-        $items = [
-            new SitemapItem("/", "monthly", 1.0),
-        ];
+        $items = [];
 
+        foreach (ROUTES[""]["routes"] as $route) {
+            if ($route[0] !== "GET") {
+                continue;
+            }
+
+            $items []= new SitemapItem($route[1], "weekly", 1.0);
+        }
+
+        $res = new SitemapResponse();
         $res->setItems($items);
+
         return $res;
     }
 }
