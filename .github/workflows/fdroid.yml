@@ -35,13 +35,13 @@ jobs:
         with:
           repository: "jamie-mh/AuthenticatorPro"
           latest: true
-          fileName: "me.jmh.authenticatorpro-arm64-v8a.fdroid.apk"
+          fileName: "me.jmh.authenticatorpro.fdroid.apk"
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Update repo
         run: |
           mkdir "$GITHUB_WORKSPACE/fdroid/repo"
-          mv me.jmh.authenticatorpro-arm64-v8a.fdroid.apk "$GITHUB_WORKSPACE/fdroid/repo"
+          mv me.jmh.authenticatorpro.fdroid.apk "$GITHUB_WORKSPACE/fdroid/repo"
           
           cd "$GITHUB_WORKSPACE/fdroid"
           fdroid update 
