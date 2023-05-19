@@ -12,7 +12,7 @@ class DownloadController extends Controller
     {
         $res = new PageResponse();
         $res->meta->title = "Download";
-        $res->meta->description = "Download Authenticator Pro app for free";
+        $res->meta->description = "Download the Authenticator Pro app for free";
         $res->setView("download/index.twig");
         return $res;
     }
