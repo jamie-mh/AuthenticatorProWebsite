@@ -17,12 +17,12 @@
 
     .permalink {
         margin-left: 12px;
-        display: none;
+        visibility: hidden;
     }
 
     h2, h3, h4, h5, h6 {
         &:hover .permalink {
-            display: inline;
+            visibility: visible;
         }
 
         margin: 18px 0;
