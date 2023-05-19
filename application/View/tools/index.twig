@@ -17,15 +17,27 @@
                     </form>
 
                     <h3 class="mb">Example URI formats</h3>
-                    <ul>
-                        <li>otpauth://totp/<strong>[issuer]</strong>:<strong>[username]</strong>?secret=<strong>[secret]</strong>&issuer=<strong>[issuer]</strong></li>
-                        <li>otpauth://hotp/<strong>[issuer]</strong>:<strong>[username]</strong>?secret=<strong>[secret]</strong>&issuer=<strong>[issuer]</strong>&counter=<strong>[counter]</strong></li>
-                        <li>otpauth://totp/Steam?secret=<strong>[secret]</strong>&issuer=Steam</li>
-                        <li>otpauth://yaotp/Yandex:<strong>[username]</strong>?secret=<strong>[secret]</strong>&pin_length=<strong>[pin length]</strong></li>
-                        <li>motp://<strong>[issuer]</strong>:<strong>[username]</strong>?secret=<strong>[secret]</strong></li>
-                    </ul>
+                    <p class="mb">Replace the placeholders in brackets to generate a URI</p>
+
+                    <dl>
+                        <dt>TOTP</dt>
+                        <dd class="mono">otpauth://totp/<strong>[issuer]</strong>:<strong>[username]</strong>?secret=<strong>[secret]</strong>&issuer=<strong>[issuer]</strong></dd>
+
+                        <dt>HOTP</dt>
+                        <dd class="mono">otpauth://hotp/<strong>[issuer]</strong>:<strong>[username]</strong>?secret=<strong>[secret]</strong>&issuer=<strong>[issuer]</strong>&counter=<strong>[counter]</strong></dd>
+
+                        <dt>Steam</dt>
+                        <dd class="mono">otpauth://totp/Steam?secret=<strong>[secret]</strong>&issuer=Steam</dd>
+
+                        <dt>Yandex</dt>
+                        <dd class="mono">otpauth://yaotp/Yandex:<strong>[username]</strong>?secret=<strong>[secret]</strong>&pin_length=<strong>[pin length]</strong></dd>
+
+                        <dt>mOTP (Mobile-Otp)</dt>
+                        <dd class="mono">motp://<strong>[issuer]</strong>:<strong>[username]</strong>?secret=<strong>[secret]</strong></dd>
+                    </dl>
                 </div>
                 <div class="sm-col12 md-col5">
+                    <h3 class="mb2">Result</h3>
                     <canvas id="qrcode-canvas"></canvas>
                 </div>
             </div>
