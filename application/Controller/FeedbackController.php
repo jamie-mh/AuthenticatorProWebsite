@@ -24,7 +24,7 @@ class FeedbackController extends Controller
     public function submit(): Response
     {
         $res = $this->index();
-        $form = FeedbackForm::load();
+        $form = FeedbackForm::init(INPUT_POST);
         $res->viewData["form"] = $form;
 
         try {

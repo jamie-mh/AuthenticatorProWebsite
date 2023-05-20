@@ -50,16 +50,13 @@ textarea {
     resize: vertical;
     width: 100%;
     min-height: 200px;
+    font-family: $font_primary;
+    font-size: 14px;
+    line-height: 26px;
 }
 
 input:disabled, select:disabled, textarea:disabled {
     background: darken($surface, 4);
-}
-
-textarea {
-    font-family: $font_primary;
-    font-size: 14px;
-    line-height: 26px;
 }
 
 input[type="checkbox"] {

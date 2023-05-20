@@ -1,6 +1,6 @@
 <?php
 
-namespace AuthPro\Util;
+namespace AuthPro\Utility;
 
 use League\CommonMark\Environment\Environment;
 use League\CommonMark\Exception\CommonMarkException;

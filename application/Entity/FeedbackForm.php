@@ -16,13 +16,13 @@ class FeedbackForm
     {
     }
 
-    public static function load(): FeedbackForm
+    public static function init(int $input): FeedbackForm
     {
         $form = new FeedbackForm();
-        $form->email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL, FILTER_FLAG_NO_ENCODE_QUOTES);
-        $form->subject = htmlspecialchars(filter_input(INPUT_POST, "subject", FILTER_UNSAFE_RAW));
-        $form->message = htmlspecialchars(filter_input(INPUT_POST, "message", FILTER_UNSAFE_RAW));
-        $form->captcha = filter_input(INPUT_POST, "g-recaptcha-response", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $form->email = filter_input($input, "email", FILTER_SANITIZE_EMAIL, FILTER_FLAG_NO_ENCODE_QUOTES);
+        $form->subject = htmlspecialchars(filter_input($input, "subject", FILTER_UNSAFE_RAW));
+        $form->message = htmlspecialchars(filter_input($input, "message", FILTER_UNSAFE_RAW));
+        $form->captcha = filter_input($input, "g-recaptcha-response", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
         return $form;
     }

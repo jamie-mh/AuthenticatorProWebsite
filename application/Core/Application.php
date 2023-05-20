@@ -28,8 +28,8 @@ readonly class Application
 
         Factory::setDefaultInstance(
             (new Factory())
-                ->withRuleNamespace("AuthPro\\Validation\\Rules")
-                ->withExceptionNamespace("AuthPro\\Validation\\Exceptions")
+                ->withRuleNamespace("AuthPro\\Core\\Validation\\Rules")
+                ->withExceptionNamespace("AuthPro\\Core\\Validation\\Exceptions")
         );
     }
 

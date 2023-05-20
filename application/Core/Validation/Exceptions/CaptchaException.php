@@ -1,6 +1,6 @@
 <?php
 
-namespace AuthPro\Validation\Exceptions;
+namespace AuthPro\Core\Validation\Exceptions;
 
 use Respect\Validation\Exceptions\ValidationException;
 

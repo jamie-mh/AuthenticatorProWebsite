@@ -1,11 +1,15 @@
 <?php
 
-namespace AuthPro\Validation\Rules;
+namespace AuthPro\Core\Validation\Rules;
 
+use JsonException;
 use Respect\Validation\Rules\AbstractRule;
 
 class Captcha extends AbstractRule
 {
+    /**
+     * @throws JsonException
+     */
     public function validate($input): bool
     {
         if ($input === null || trim($input) === "") {

@@ -6,13 +6,13 @@ use Dotenv\Dotenv;
 define("ROOT", dirname(__DIR__) . "/");
 define("APP", ROOT . "application/");
 
-require ROOT . "vendor/autoload.php";
+require_once ROOT . "vendor/autoload.php";
 
 $dotenv = Dotenv::createImmutable(ROOT);
 $dotenv->load();
 
-require APP . "Core/_env.php";
-require APP . "Core/_routes.php";
+require_once APP . "Core/_env.php";
+require_once APP . "Core/_routes.php";
 
 if (IS_DEV) {
     error_reporting(E_ALL);
