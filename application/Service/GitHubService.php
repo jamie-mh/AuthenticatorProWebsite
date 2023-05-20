@@ -21,6 +21,7 @@ readonly class GitHubService
 
     /**
      * @throws RedisException
+     * @throws GitHubException
      */
     public function getWikiPage(string $fileName): string
     {
@@ -30,6 +31,7 @@ readonly class GitHubService
 
     /**
      * @throws RedisException
+     * @throws GitHubException
      */
     public function getMarkdownPage(string $filePath): string
     {
