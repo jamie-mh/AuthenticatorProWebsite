@@ -7,11 +7,11 @@ use Exception;
 
 class SitemapResponse implements Response
 {
-    private array $_items;
+    private array $items;
 
     public function setItems(array $items): void
     {
-        $this->_items = $items;
+        $this->items = $items;
     }
 
     public function render(): void
@@ -20,7 +20,7 @@ class SitemapResponse implements Response
         echo '<?xml version="1.0" encoding="UTF-8"?>';
         echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
 
-        foreach ($this->_items as $item) {
+        foreach ($this->items as $item) {
             echo "<url>";
             echo "<loc>" . PROTOCOL . "://" . DOMAIN_NAME . $item->uri . "</loc>";
             echo "<changefreq>$item->changeFrequency</changefreq>";

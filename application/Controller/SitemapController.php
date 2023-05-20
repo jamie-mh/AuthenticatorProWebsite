@@ -18,7 +18,7 @@ class SitemapController extends Controller
                 continue;
             }
 
-            $items []= new SitemapItem($route[1], "weekly", 1.0);
+            $items [] = new SitemapItem($route[1], "weekly", 1.0);
         }
 
         $res = new SitemapResponse();

@@ -12,11 +12,11 @@ use function FastRoute\simpleDispatcher;
 
 readonly class Application
 {
-    private Dispatcher $_dispatcher;
+    private Dispatcher $dispatcher;
 
     public function __construct()
     {
-        $this->_dispatcher = simpleDispatcher(function (RouteCollector $collector) {
+        $this->dispatcher = simpleDispatcher(function (RouteCollector $collector) {
             foreach (ROUTES as $prefix => $def) {
                 $collector->addGroup($prefix, function (RouteCollector $groupCollector) use ($prefix) {
                     foreach (ROUTES[$prefix]["routes"] as $route) {
@@ -72,24 +72,15 @@ readonly class Application
 
     private function loadRoute(string $httpMethod, string $uri): void
     {
-        $dispatchInfo = $this->_dispatcher->dispatch($httpMethod, $uri);
+        $dispatchInfo = $this->dispatcher->dispatch($httpMethod, $uri);
         $prefix = self::getPrefix($uri);
         $responseObj = ROUTES[$prefix]["response"];
 
-        switch ($dispatchInfo[0]) {
-            case Dispatcher::METHOD_NOT_ALLOWED:
-                $response = $responseObj::methodNotAllowed();
-                break;
-
-            case Dispatcher::FOUND:
-                $response = $this->getResponse($dispatchInfo[1], $responseObj, $dispatchInfo[2]);
-                break;
-
-            default:
-            case Dispatcher::NOT_FOUND:
-                $response = $responseObj::notFound();
-                break;
-        }
+        $response = match ($dispatchInfo[0]) {
+            Dispatcher::METHOD_NOT_ALLOWED => $responseObj::methodNotAllowed(),
+            Dispatcher::FOUND => $this->getResponse($dispatchInfo[1], $responseObj, $dispatchInfo[2]),
+            default => $responseObj::notFound(),
+        };
 
         http_response_code($response->getStatusCode());
         $response->render();

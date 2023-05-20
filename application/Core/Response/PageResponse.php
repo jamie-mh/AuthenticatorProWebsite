@@ -13,23 +13,23 @@ use Twig\TwigFunction;
 
 class PageResponse implements Response
 {
-    private readonly Environment $_twig;
-    private readonly array $_assetMap;
+    private readonly Environment $twig;
+    private readonly array $assetMap;
 
     public DocumentMeta $meta;
     public array $viewData;
 
-    private string $_viewPath;
-    private int $_statusCode;
+    private string $viewPath;
+    private int $statusCode;
 
     public function __construct()
     {
-        $this->_statusCode = Response::STATUS_OK;
+        $this->statusCode = Response::STATUS_OK;
         $this->meta = new DocumentMeta();
         $this->viewData = [];
 
         $loader = new FilesystemLoader(APP . "View");
-        $this->_twig = new Environment(
+        $this->twig = new Environment(
             $loader,
             IS_DEV
                 ? [
@@ -39,36 +39,37 @@ class PageResponse implements Response
                 : []
         );
 
-        $this->_twig->addGlobal("meta", $this->meta);
-        $this->_twig->addGlobal("session", $_SESSION);
+        $this->twig->addGlobal("meta", $this->meta);
+        $this->twig->addGlobal("session", $_SESSION);
         $this->addAssetHashFunction();
 
         if (IS_DEV) {
-            $this->_twig->addExtension(new DebugExtension());
+            $this->twig->addExtension(new DebugExtension());
         } else {
             $assetMapContents = file_get_contents(APP . "assets.json");
-            $this->_assetMap = json_decode($assetMapContents, true, 2, JSON_THROW_ON_ERROR);
+            $this->assetMap = json_decode($assetMapContents, true, 2, JSON_THROW_ON_ERROR);
         }
     }
 
-    private function addAssetHashFunction(): void {
-        $this->_twig->addFunction(
+    private function addAssetHashFunction(): void
+    {
+        $this->twig->addFunction(
             new TwigFunction("asset_hash", function (string $name) {
-                return IS_DEV ? $name : $this->_assetMap[$name];
+                return IS_DEV ? $name : $this->assetMap[$name];
             })
         );
     }
 
     public function render(): void
     {
-        if (!isset($this->_viewPath)) {
+        if (!isset($this->viewPath)) {
             return;
         }
 
         try {
-            echo $this->_twig->render("_shared/header.twig");
-            echo $this->_twig->render($this->_viewPath, $this->viewData);
-            echo $this->_twig->render("_shared/footer.twig");
+            echo $this->twig->render("_shared/header.twig");
+            echo $this->twig->render($this->viewPath, $this->viewData);
+            echo $this->twig->render("_shared/footer.twig");
         } catch (Error $e) {
             self::serverError($e)->render();
         }
@@ -76,7 +77,7 @@ class PageResponse implements Response
 
     public function setView(string $path): void
     {
-        $this->_viewPath = $path;
+        $this->viewPath = $path;
     }
 
     private static function getErrorResponse(int $statusCode): PageResponse
@@ -116,11 +117,11 @@ class PageResponse implements Response
 
     public function getStatusCode(): int
     {
-        return $this->_statusCode;
+        return $this->statusCode;
     }
 
     public function setStatusCode($statusCode): void
     {
-        $this->_statusCode = $statusCode;
+        $this->statusCode = $statusCode;
     }
 }

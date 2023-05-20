@@ -12,13 +12,9 @@ class FeedbackForm
     public string $message;
     public string $captcha;
 
-    private function __construct()
-    {
-    }
-
     public static function init(int $input): FeedbackForm
     {
-        $form = new FeedbackForm();
+        $form = new self();
         $form->email = filter_input($input, "email", FILTER_SANITIZE_EMAIL, FILTER_FLAG_NO_ENCODE_QUOTES);
         $form->subject = htmlspecialchars(filter_input($input, "subject", FILTER_UNSAFE_RAW));
         $form->message = htmlspecialchars(filter_input($input, "message", FILTER_UNSAFE_RAW));

@@ -14,9 +14,9 @@ use League\CommonMark\MarkdownConverter;
 
 class MarkdownRenderer
 {
-    private readonly Environment $_environment;
+    private readonly Environment $environment;
 
-    private static array $_config = [
+    private static array $config = [
         "external_link" => [
             "internal_hosts" => DOMAIN_NAME,
             "open_in_new_window" => true,
@@ -39,19 +39,20 @@ class MarkdownRenderer
 
     public function __construct()
     {
-        $this->_environment = new Environment(self::$_config);
-        $this->_environment->addExtension(new CommonMarkCoreExtension());
-        $this->_environment->addExtension(new GithubFlavoredMarkdownExtension());
-        $this->_environment->addExtension(new HeadingPermalinkExtension());
-        $this->_environment->addExtension(new ExternalLinkExtension());
-        $this->_environment->addExtension(new TableOfContentsExtension());
+        $this->environment = new Environment(self::$config);
+        $this->environment->addExtension(new CommonMarkCoreExtension());
+        $this->environment->addExtension(new GithubFlavoredMarkdownExtension());
+        $this->environment->addExtension(new HeadingPermalinkExtension());
+        $this->environment->addExtension(new ExternalLinkExtension());
+        $this->environment->addExtension(new TableOfContentsExtension());
     }
 
     /**
      * @throws CommonMarkException
      */
-    public function render(string $markdown): string {
-        $converter = new MarkdownConverter($this->_environment);
+    public function render(string $markdown): string
+    {
+        $converter = new MarkdownConverter($this->environment);
         return $converter->convert($markdown)->getContent();
     }
 }
