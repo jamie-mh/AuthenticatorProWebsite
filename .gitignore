@@ -11,3 +11,4 @@ fdroid/keystore.p12
 node_modules/
 
 .env
+application/assets.json
