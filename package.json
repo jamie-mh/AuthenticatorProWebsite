@@ -11,7 +11,7 @@
     "license": "ISC",
     "dependencies": {
         "@babel/core": "^7.21.8",
-        "@babel/preset-env": "^7.21.5",
+        "@babel/preset-env": "^7.22.2",
         "browser-sync": "^2.29.2",
         "esbuild": "^0.17.19",
         "gulp": "^4.0.2",
