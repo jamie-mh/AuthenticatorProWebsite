@@ -10,7 +10,7 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "@babel/core": "^7.21.8",
+        "@babel/core": "^7.22.1",
         "@babel/preset-env": "^7.21.5",
         "browser-sync": "^2.29.2",
         "esbuild": "^0.17.19",
