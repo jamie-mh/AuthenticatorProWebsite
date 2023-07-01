@@ -59,11 +59,11 @@ class FeedbackController extends Controller
         $mail->Port = EMAIL_PORT;
         $mail->isHTML();
 
-        $mail->setFrom(EMAIL_USERNAME);
+        $mail->setFrom(EMAIL_RECIPIENT);
         $mail->addAddress(EMAIL_RECIPIENT);
         $mail->addReplyTo($form->email);
 
-        $mail->Subject = "AuthenticatorPro: " . $form->subject;
+        $mail->Subject = "Authenticator Pro: " . $form->subject;
         $mail->Body = $form->message;
 
         $mail->send();
