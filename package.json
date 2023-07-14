@@ -10,10 +10,10 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "@babel/core": "^7.22.8",
-        "@babel/preset-env": "^7.22.7",
+        "@babel/core": "^7.22.9",
+        "@babel/preset-env": "^7.22.9",
         "browser-sync": "^2.29.3",
-        "esbuild": "^0.18.11",
+        "esbuild": "^0.18.12",
         "gulp": "^4.0.2",
         "gulp-autoprefixer": "^8.0.0",
         "gulp-babel": "^8.0.0",
