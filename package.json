@@ -25,6 +25,6 @@
         "gulp-terser": "^2.1.0",
         "normalize.css": "^8.0.1",
         "qrcode": "^1.5.3",
-        "sass": "^1.63.6"
+        "sass": "^1.64.2"
     }
 }
