@@ -13,7 +13,7 @@ class HomeController extends Controller
     public function index(): Response
     {
         $res = new PageResponse();
-        $res->meta->title = "Free and open-source two-factor authentication app";
+        $res->meta->title = "Open-source two-factor authentication app";
         $res->meta->description = "Authenticator Pro is a free and open-source two-factor authentication app for Android. It features encrypted backups, icons, categories, a high level of customisation and even a Wear OS app.";
         $res->setView("home/index.twig");
         return $res;
