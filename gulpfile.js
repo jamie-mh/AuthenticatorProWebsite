@@ -3,23 +3,26 @@
 
 "use strict";
 
-const gulp = require("gulp");
-const browserSync = require("browser-sync").create();
-const environments = require("gulp-environments");
-const hash = require("gulp-hash");
+import gulp from "gulp";
+import environments from "gulp-environments";
+import hash from "gulp-hash";
+import browserSync from "browser-sync";
 
-const sass = require("gulp-sass")(require("sass"));
-const autoprefixer = require("gulp-autoprefixer");
-const cleanCSS = require("gulp-clean-css");
+import gulpSass from "gulp-sass"
+import * as dartSass from "sass";
+import cleanCSS from "gulp-clean-css"
+import autoprefixer from "gulp-autoprefixer";
 
-const babel = require("gulp-babel");
-const terser = require("gulp-terser");
-const {createGulpEsbuild} = require("gulp-esbuild")
+import babel from "gulp-babel";
+import terser from "gulp-terser"
+import {createGulpEsbuild} from "gulp-esbuild";
 
 const esbuild = createGulpEsbuild({
     incremental: false,
     piping: true
 });
+
+const sass = gulpSass(dartSass);
 
 const development = environments.development;
 const production = environments.production;
@@ -110,10 +113,6 @@ function watch() {
     gulp.watch(paths.js.watch, js);
     gulp.watch(paths.php.watch, reload);
 }
-
-exports.js = js;
-exports.scss = scss;
-exports.watch = watch;
 
 gulp.task("default", gulp.series(scss, js, watch));
 gulp.task("build", gulp.parallel(scss, js));
