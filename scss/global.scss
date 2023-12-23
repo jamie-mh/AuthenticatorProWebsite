@@ -26,7 +26,6 @@ body {
     background-image: url("/img/background.png");
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
     color: $text_500;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -36,6 +35,7 @@ body {
 @media (min-width: $container_width) {
     body {
         padding-top: 20px;
+        background-attachment: fixed;
     }
 }
 
