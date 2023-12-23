@@ -4,12 +4,22 @@
 
 namespace AuthPro\Core\Validation\Rules;
 
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use JsonException;
 use Respect\Validation\Rules\AbstractRule;
 
 class Captcha extends AbstractRule
 {
+    private readonly Client $client;
+
+    public function __construct()
+    {
+        $this->client = new Client();
+    }
+
     /**
+     * @throws GuzzleException
      * @throws JsonException
      */
     public function validate($input): bool
@@ -18,23 +28,15 @@ class Captcha extends AbstractRule
             return false;
         }
 
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify");
-        curl_setopt($curl, CURLOPT_POST, 1);
-        curl_setopt(
-            $curl,
-            CURLOPT_POSTFIELDS,
-            http_build_query([
+        $res = $this->client->request("POST", "https://www.google.com/recaptcha/api/siteverify", [
+            "form_params" => [
                 "secret" => RECAPTCHA_SECRET,
                 "response" => $input,
                 "remoteip" => $_SERVER["REMOTE_ADDR"]
-            ])
-        );
+            ]
+        ]);
 
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        $response = curl_exec($curl);
-        curl_close($curl);
-
-        return json_decode($response, false, 512, JSON_THROW_ON_ERROR)->success;
+        $json = (string) $res->getBody();
+        return json_decode($json, false, 512, JSON_THROW_ON_ERROR)->success;
     }
 }
