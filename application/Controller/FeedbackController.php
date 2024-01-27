@@ -59,6 +59,7 @@ class FeedbackController extends Controller
         $mail->Password = EMAIL_PASSWORD;
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = EMAIL_PORT;
+        $mail->CharSet = PHPMailer::CHARSET_UTF8;
         $mail->isHTML();
 
         $mail->setFrom(EMAIL_RECIPIENT);
@@ -66,7 +67,7 @@ class FeedbackController extends Controller
         $mail->addReplyTo($form->email);
 
         $mail->Subject = "Authenticator Pro: " . $form->subject;
-        $mail->Body = $form->message;
+        $mail->Body = nl2br($form->message);
 
         $mail->send();
     }
