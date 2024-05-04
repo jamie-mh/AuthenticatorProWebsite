@@ -11,9 +11,10 @@ const $qrCode = document.getElementById("qrcode-canvas");
 $form.addEventListener("submit", async function (event) {
     event.preventDefault();
     const $textarea = $form.elements.namedItem("text");
+    const text = $textarea.value.trim();
 
     try {
-        await QRCode.toCanvas($qrCode, $textarea.value, {
+        await QRCode.toCanvas($qrCode, text, {
             errorCorrectionLevel: "Q",
             scale: 6
         });
