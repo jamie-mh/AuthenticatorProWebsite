@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install F-Droid server
         run: |
@@ -31,7 +31,7 @@ jobs:
           chmod 600 "$GITHUB_WORKSPACE/fdroid/config.yml"
 
       - name: Download latest release
-        uses: robinraju/release-downloader@v1.8
+        uses: robinraju/release-downloader@v1.10
         with:
           repository: "jamie-mh/AuthenticatorPro"
           latest: true
@@ -48,7 +48,7 @@ jobs:
           cd $GITHUB_WORKSPACE
 
       - name: Deploy with rsync
-        uses: burnett01/rsync-deployments@5.2
+        uses: burnett01/rsync-deployments@7.0.1
         with:
           switches: -avzr --delete
           path: "fdroid/repo"
