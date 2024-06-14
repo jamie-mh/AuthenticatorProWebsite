@@ -20,7 +20,7 @@
         "gulp-babel": "^8.0.0",
         "gulp-clean-css": "^4.3.0",
         "gulp-environments": "^1.0.1",
-        "gulp-esbuild": "^0.12.0",
+        "gulp-esbuild": "^0.12.1",
         "gulp-hash": "^4.2.2",
         "gulp-sass": "^5.1.0",
         "gulp-terser": "^2.1.0",
