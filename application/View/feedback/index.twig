@@ -5,7 +5,17 @@
     </header>
 
     <main id="content">
-        <div class="row gaps2">
+        <div class="row reverse gaps2">
+            <div class="sm-col12 md-col4 sm-mb3">
+                <h2 class="mb2">Guidelines</h2>
+                <p>This form is for feedback regarding the Strata app. Please take note of the following guidelines:</p>
+
+                <ul>
+                    <li><strong>No support</strong>: Support will not be provided from this form. Please check out the <a href="/wiki/faq">FAQ</a> for common answers.</li>
+                    <li><strong>Bugs</strong>: Please create an issue on <a href="https://github.com/jamie-mh/AuthenticatorPro/issues" rel="nofollow noopener">GitHub</a> if possible</li>
+                    <li><strong>Other enquiries</strong>: Please use the form and provide as much detail as deemed necessary</li>
+                </ul>
+            </div>
             <div class="sm-col12 md-col8">
                 {% if not success is defined %}
                     <form action="/feedback" method="post">
@@ -41,16 +51,6 @@
                     <strong class="mb">Thanks for your message!</strong>
                     <p>We'll get back to you as soon as possible.</p>
                 {% endif %}
-            </div>
-            <div class="sm-col12 md-col4">
-                <h2 class="mb2">Guidelines</h2>
-                <p>This form is for feedback regarding the Authenticator Pro app. Please take note of the following guidelines:</p>
-
-                <ul>
-                    <li><strong>No support</strong>: Support will not be provided from this form. Please check out the <a href="/wiki/faq">FAQ</a> for common answers.</li>
-                    <li><strong>Bugs</strong>: Please create an issue on <a href="https://github.com/jamie-mh/AuthenticatorPro/issues" rel="nofollow noopener">GitHub</a> if possible</li>
-                    <li><strong>Other enquiries</strong>: Please use the form and provide as much detail as deemed necessary</li>
-                </ul>
             </div>
         </div>
     </main>
