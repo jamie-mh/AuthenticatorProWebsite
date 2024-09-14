@@ -24,7 +24,7 @@ class DownloadController extends Controller
 
         $res = new PageResponse();
         $res->meta->title = "Download";
-        $res->meta->description = "Download the open-source Authenticator Pro app for free";
+        $res->meta->description = "Download the open-source Stratum app for free";
         $res->setView("download/index.twig");
         $res->viewData = ["latestTag" => $latestTag];
         return $res;

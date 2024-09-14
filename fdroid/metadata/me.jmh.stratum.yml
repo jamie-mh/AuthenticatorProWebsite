@@ -6,7 +6,7 @@ WebSite: https://authenticatorpro.jmh.me
 SourceCode: https://github.com/jamie-mh/AuthenticatorPro
 IssueTracker: https://github.com/jamie-mh/AuthenticatorPro/issues
 
-Name: Authenticator Pro
+Name: Stratum
 Summary: Free and open-source 2FA app with encrypted backups
 
 AutoUpdateMode: None

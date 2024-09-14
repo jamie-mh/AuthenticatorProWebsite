@@ -14,7 +14,7 @@ class PrivacyController extends Controller
     {
         $res = new PageResponse();
         $res->meta->title = "Privacy Policy";
-        $res->meta->description = "Authenticator Pro Privacy Policy";
+        $res->meta->description = "Stratum Privacy Policy";
         $res->setView("privacy/index.twig");
         return $res;
     }

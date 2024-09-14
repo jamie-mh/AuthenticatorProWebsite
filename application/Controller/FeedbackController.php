@@ -18,7 +18,7 @@ class FeedbackController extends Controller
     {
         $res = new PageResponse();
         $res->meta->title = "Feedback";
-        $res->meta->description = "Provide feedback for the Authenticator Pro app";
+        $res->meta->description = "Provide feedback for the Stratum app";
         $res->setView("feedback/index.twig");
         return $res;
     }
@@ -66,7 +66,7 @@ class FeedbackController extends Controller
         $mail->addAddress(EMAIL_RECIPIENT);
         $mail->addReplyTo($form->email);
 
-        $mail->Subject = "Authenticator Pro: " . $form->subject;
+        $mail->Subject = "Stratum: " . $form->subject;
         $mail->Body = nl2br($form->message);
 
         $mail->send();

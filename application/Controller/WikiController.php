@@ -25,7 +25,7 @@ class WikiController extends Controller
     {
         $res = new PageResponse();
         $res->meta->title = "Wiki";
-        $res->meta->description = "Welcome to the Authenticator Pro wiki";
+        $res->meta->description = "Welcome to the Stratum wiki";
         $res->setView("wiki/index.twig");
         return $res;
     }
@@ -39,7 +39,7 @@ class WikiController extends Controller
     public function backupFormat(): Response
     {
         $content = $this->gitHubService->getMarkdownPage("doc/BACKUP_FORMAT.md");
-        return $this->page("Backup Format", "File format and encryption for Authenticator Pro backup files", $content);
+        return $this->page("Backup Format", "File format and encryption for Stratum backup files", $content);
     }
 
     public function googleAuthenticator(): Response
@@ -47,7 +47,7 @@ class WikiController extends Controller
         $content = $this->gitHubService->getWikiPage("Importing-from-Google-Authenticator.md");
         return $this->page(
             "Import from Google Authenticator",
-            "Here's how to transfer your accounts from Google Authenticator to Authenticator Pro",
+            "Here's how to transfer your accounts from Google Authenticator to Stratum",
             $content
         );
     }
@@ -57,7 +57,7 @@ class WikiController extends Controller
         $content = $this->gitHubService->getWikiPage("Importing-from-Authy.md");
         return $this->page(
             "Import from Authy",
-            "Here's how to transfer your accounts from Authy to Authenticator Pro",
+            "Here's how to transfer your accounts from Authy to Stratum",
             $content
         );
     }
@@ -67,7 +67,7 @@ class WikiController extends Controller
         $content = $this->gitHubService->getWikiPage("Importing-from-Blizzard-Authenticator.md");
         return $this->page(
             "Import from Blizzard Authenticator",
-            "Here's how to transfer your accounts from Blizzard Authenticator to Authenticator Pro",
+            "Here's how to transfer your accounts from Blizzard Authenticator to Stratum",
             $content
         );
     }
@@ -77,7 +77,7 @@ class WikiController extends Controller
         $content = $this->gitHubService->getWikiPage("Importing-from-Steam.md");
         return $this->page(
             "Import from Steam",
-            "Here's how to transfer your accounts from Steam mobile app to Authenticator Pro",
+            "Here's how to transfer your accounts from Steam mobile app to Stratum",
             $content
         );
     }
