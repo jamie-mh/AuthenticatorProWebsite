@@ -5,9 +5,10 @@
 
 #hero {
     padding: 30px 20px;
+    color: $text_400;
 
-    h1 strong {
-        color: $primary_500;
+    h1 {
+        color: $text_500;
     }
 }
 
