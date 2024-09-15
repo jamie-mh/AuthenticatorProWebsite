@@ -4,7 +4,6 @@
 @import "../values";
 
 .breadcrumbs {
-    @include clearfix;
     list-style: none;
     padding: 0;
     font-size: 14px;
@@ -20,4 +19,6 @@
         color: $text_100;
         margin: 0 14px;
     }
+
+    @include clearfix;
 }

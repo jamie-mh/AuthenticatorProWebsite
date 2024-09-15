@@ -4,8 +4,8 @@
 @import "../values";
 
 form {
-    @include clearfix;
     margin: 0;
+    @include clearfix;
 }
 
 label, input, select {
