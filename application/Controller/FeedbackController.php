@@ -2,12 +2,12 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-namespace AuthPro\Controller;
+namespace Stratum\Controller;
 
-use AuthPro\Core\Controller;
-use AuthPro\Core\Response;
-use AuthPro\Core\Response\PageResponse;
-use AuthPro\Entity\FeedbackForm;
+use Stratum\Core\Controller;
+use Stratum\Core\Response;
+use Stratum\Core\Response\PageResponse;
+use Stratum\Entity\FeedbackForm;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 use Respect\Validation\Exceptions\ValidationException;

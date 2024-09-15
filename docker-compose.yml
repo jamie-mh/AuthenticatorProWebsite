@@ -2,7 +2,7 @@ version: '3.1'
 services:
     nginx:
         image: 'nginx:alpine'
-        container_name: authpro-nginx
+        container_name: stratum-nginx
         working_dir: /application
         volumes:
             - '.:/application'
@@ -11,7 +11,7 @@ services:
             - '8080:80'
 
     php-fpm:
-        container_name: authpro-php
+        container_name: stratum-php
         build: phpdocker/php-fpm
         working_dir: /application
         volumes:
@@ -20,6 +20,6 @@ services:
 
     redis:
         image: redis:7
-        container_name: authpro-redis
+        container_name: stratum-redis
         ports:
             - "6379:6379"

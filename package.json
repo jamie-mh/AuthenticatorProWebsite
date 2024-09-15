@@ -1,5 +1,5 @@
 {
-    "name": "authenticatorprowebsite",
+    "name": "stratumwebsite",
     "version": "1.0.0",
     "description": "",
     "main": "gulpfile.js",
@@ -11,21 +11,21 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "@babel/core": "^7.24.5",
-        "@babel/preset-env": "^7.24.5",
+        "@babel/core": "^7.25.2",
+        "@babel/preset-env": "^7.25.4",
         "browser-sync": "^3.0.2",
-        "esbuild": "^0.21.3",
+        "esbuild": "^0.23.1",
         "gulp": "^5.0.0",
         "gulp-autoprefixer": "^9.0.0",
         "gulp-babel": "^8.0.0",
         "gulp-clean-css": "^4.3.0",
         "gulp-environments": "^1.0.1",
-        "gulp-esbuild": "^0.12.0",
+        "gulp-esbuild": "^0.12.1",
         "gulp-hash": "^4.2.2",
         "gulp-sass": "^5.1.0",
         "gulp-terser": "^2.1.0",
         "normalize.css": "^8.0.1",
-        "qrcode": "^1.5.3",
-        "sass": "^1.77.2"
+        "qrcode": "^1.5.4",
+        "sass": "^1.78.0"
     }
 }

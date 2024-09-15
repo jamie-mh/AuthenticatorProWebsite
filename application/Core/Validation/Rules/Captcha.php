@@ -2,7 +2,7 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-namespace AuthPro\Core\Validation\Rules;
+namespace Stratum\Core\Validation\Rules;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;

@@ -2,13 +2,13 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-namespace AuthPro\Controller;
+namespace Stratum\Controller;
 
-use AuthPro\Core\Controller;
-use AuthPro\Core\Response;
-use AuthPro\Core\Response\PageResponse;
-use AuthPro\Service\GitHubService;
-use AuthPro\Utility\MarkdownRenderer;
+use Stratum\Core\Controller;
+use Stratum\Core\Response;
+use Stratum\Core\Response\PageResponse;
+use Stratum\Service\GitHubService;
+use Stratum\Utility\MarkdownRenderer;
 
 class WikiController extends Controller
 {

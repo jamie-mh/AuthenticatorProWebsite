@@ -1,5 +1,5 @@
 {
-    "name": "jmh/authenticatorprowebsite",
+    "name": "jmh/stratumwebsite",
     "require": {
         "ext-curl": "*",
         "ext-json": "*",
@@ -28,7 +28,7 @@
     },
     "autoload": {
         "psr-4": {
-            "AuthPro\\": "application/"
+            "Stratum\\": "application/"
         }
     },
     "scripts": {

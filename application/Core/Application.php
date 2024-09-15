@@ -2,7 +2,7 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-namespace AuthPro\Core;
+namespace Stratum\Core;
 
 use Exception;
 use FastRoute\Dispatcher;
@@ -30,8 +30,8 @@ readonly class Application
 
         Factory::setDefaultInstance(
             (new Factory())
-                ->withRuleNamespace("AuthPro\\Core\\Validation\\Rules")
-                ->withExceptionNamespace("AuthPro\\Core\\Validation\\Exceptions")
+                ->withRuleNamespace("Stratum\\Core\\Validation\\Rules")
+                ->withExceptionNamespace("Stratum\\Core\\Validation\\Exceptions")
         );
     }
 

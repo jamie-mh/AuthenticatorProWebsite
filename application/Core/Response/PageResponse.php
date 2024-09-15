@@ -2,10 +2,10 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-namespace AuthPro\Core\Response;
+namespace Stratum\Core\Response;
 
-use AuthPro\Core\Response;
-use AuthPro\Entity\DocumentMeta;
+use Stratum\Core\Response;
+use Stratum\Entity\DocumentMeta;
 use Exception;
 use Twig\Environment;
 use Twig\Error\Error;

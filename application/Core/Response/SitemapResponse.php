@@ -2,9 +2,9 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-namespace AuthPro\Core\Response;
+namespace Stratum\Core\Response;
 
-use AuthPro\Core\Response;
+use Stratum\Core\Response;
 use Exception;
 
 class SitemapResponse implements Response

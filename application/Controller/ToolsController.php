@@ -2,11 +2,11 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-namespace AuthPro\Controller;
+namespace Stratum\Controller;
 
-use AuthPro\Core\Controller;
-use AuthPro\Core\Response;
-use AuthPro\Core\Response\PageResponse;
+use Stratum\Core\Controller;
+use Stratum\Core\Response;
+use Stratum\Core\Response\PageResponse;
 
 class ToolsController extends Controller
 {

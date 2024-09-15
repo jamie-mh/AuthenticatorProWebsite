@@ -11,14 +11,14 @@
     4: handler args (optional)
 */
 
-use AuthPro\Controller\DownloadController;
-use AuthPro\Controller\FeedbackController;
-use AuthPro\Controller\HomeController;
-use AuthPro\Controller\PrivacyController;
-use AuthPro\Controller\SitemapController;
-use AuthPro\Controller\ToolsController;
-use AuthPro\Controller\WikiController;
-use AuthPro\Core\Response\PageResponse;
+use Stratum\Controller\DownloadController;
+use Stratum\Controller\FeedbackController;
+use Stratum\Controller\HomeController;
+use Stratum\Controller\PrivacyController;
+use Stratum\Controller\SitemapController;
+use Stratum\Controller\ToolsController;
+use Stratum\Controller\WikiController;
+use Stratum\Core\Response\PageResponse;
 
 
 const ROUTES = [

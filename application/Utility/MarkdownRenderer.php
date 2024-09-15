@@ -2,7 +2,7 @@
 // Copyright (C) 2023 jmh
 // SPDX-License-Identifier: GPL-3.0-only
 
-namespace AuthPro\Utility;
+namespace Stratum\Utility;
 
 use League\CommonMark\Environment\Environment;
 use League\CommonMark\Exception\CommonMarkException;
