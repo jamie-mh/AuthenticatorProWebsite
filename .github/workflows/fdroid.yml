@@ -13,13 +13,28 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Test for release
+        id: check-update
+        run: |
+          github_latest=$(curl https://api.github.com/repos/jamie-mh/AuthenticatorPro/releases/latest | jq -r '.tag_name')
+          repo_latest=$(curl --fail https://authenticatorpro.jmh.me/fdroid/repo/latest.txt || true)
+         
+          if [ "$github_latest" != "$repo_latest" ] ; then
+            echo 'has-update=true' >> $GITHUB_OUTPUT
+            echo $github_latest > latest.txt
+          else
+            echo 'has-update=false' >> $GITHUB_OUTPUT
+          fi
+
       - name: Install F-Droid server
+        if: steps.check-update.outputs.has-update == 'true'
         run: |
           sudo add-apt-repository -y ppa:fdroid/fdroidserver
           sudo apt-get -qq update
           sudo apt-get -yqq install fdroidserver
 
       - name: Prepare config
+        if: steps.check-update.outputs.has-update == 'true'
         env:
           KEYSTORE_PASS: ${{ secrets.KEYSTORE_PASS }}
           KEY_PASS: ${{ secrets.KEY_PASS }}
@@ -31,7 +46,8 @@ jobs:
           chmod 600 "$GITHUB_WORKSPACE/fdroid/config.yml"
 
       - name: Download latest release
-        uses: robinraju/release-downloader@v1.10
+        if: steps.check-update.outputs.has-update == 'true'
+        uses: robinraju/release-downloader@v1.11
         with:
           repository: "jamie-mh/AuthenticatorPro"
           latest: true
@@ -39,15 +55,18 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Update repo
+        if: steps.check-update.outputs.has-update == 'true'
         run: |
           mkdir "$GITHUB_WORKSPACE/fdroid/repo"
           mv me.jmh.authenticatorpro.fdroid.apk "$GITHUB_WORKSPACE/fdroid/repo"
+          mv latest.txt "$GITHUB_WORKSPACE/fdroid/repo/latest.txt"
           
           cd "$GITHUB_WORKSPACE/fdroid"
           fdroid update 
           cd $GITHUB_WORKSPACE
 
       - name: Deploy with rsync
+        if: steps.check-update.outputs.has-update == 'true'
         uses: burnett01/rsync-deployments@7.0.1
         with:
           switches: -avzr --delete
